@@ -7,6 +7,7 @@
 <title>Vikas ❤️ Khushi | Wedding Invitation</title>
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -18,344 +19,502 @@ html{
 }
 
 body{
-  font-family: Georgia, serif;
-  background:
-    radial-gradient(circle at top, #f9e6c0 0%, #e9b96f 40%, #6b2d1b 100%);
-  color:#3c1c13;
+  font-family:Georgia, serif;
+  background:#fff5df;
+  color:#4d2715;
   overflow-x:hidden;
 }
 
+
 /* =========================
-   GRAND GATE SCREEN
+   GRAND GATE
 ========================= */
 
 #gateScreen{
   position:fixed;
   inset:0;
   z-index:9999;
-  background:#180d08;
-  overflow:hidden;
+  background:
+  radial-gradient(circle at center,#f7d38b 0%,#7d321c 70%,#321109 100%);
   display:flex;
   align-items:center;
   justify-content:center;
+  overflow:hidden;
+}
+
+.gateTitle{
+  position:absolute;
+  z-index:10;
+  text-align:center;
+  color:#ffe7ae;
+  top:12%;
+  padding:0 20px;
+}
+
+.gateTitle h1{
+  font-size:clamp(32px,8vw,65px);
+  letter-spacing:3px;
+}
+
+.gateTitle p{
+  margin-top:15px;
+  letter-spacing:4px;
+  font-size:13px;
 }
 
 .gate{
   position:absolute;
-  top:0;
+  inset:0;
+  display:flex;
+}
+
+.door{
   width:50%;
   height:100%;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #3b160b 0px,
-      #5d2411 15px,
-      #2b0d06 30px
-    );
-  border:8px solid #d8a84f;
-  transition:transform 2.2s cubic-bezier(.7,0,.2,1);
-}
-
-.leftGate{
-  left:0;
-  border-left:none;
-}
-
-.rightGate{
-  right:0;
-  border-right:none;
-}
-
-.gate.open.leftGate{
-  transform:translateX(-105%);
-}
-
-.gate.open.rightGate{
-  transform:translateX(105%);
-}
-
-.gateContent{
   position:relative;
-  z-index:10;
+  background:
+  linear-gradient(90deg,#3b1008,#7d2814 45%,#c27632 50%,#5c1c0c);
+  border:5px solid #d7a34e;
+  transition:transform 2.5s cubic-bezier(.7,0,.2,1);
+  overflow:hidden;
+}
+
+.leftDoor{
+  transform-origin:left center;
+}
+
+.rightDoor{
+  transform-origin:right center;
+}
+
+.gate.open .leftDoor{
+  transform:perspective(1000px) rotateY(-88deg);
+}
+
+.gate.open .rightDoor{
+  transform:perspective(1000px) rotateY(88deg);
+}
+
+.door:before{
+  content:"";
+  position:absolute;
+  inset:25px;
+  border:3px solid #eac36f;
+}
+
+.door:after{
+  content:"✦  ✦  ✦";
+  position:absolute;
+  top:45%;
+  width:100%;
   text-align:center;
-  color:#fff4d6;
-  padding:25px;
+  color:#f9d77f;
+  font-size:40px;
 }
 
-.gateContent h1{
-  font-size:clamp(38px,8vw,80px);
-  letter-spacing:4px;
-  text-shadow:0 5px 20px #000;
-}
-
-.gateContent p{
-  margin-top:15px;
-  font-size:18px;
-  letter-spacing:2px;
-}
-
-.openBtn{
-  margin-top:35px;
+#enterBtn{
+  position:absolute;
+  z-index:20;
+  bottom:12%;
   border:none;
-  padding:16px 38px;
+  padding:16px 30px;
   border-radius:50px;
   font-size:17px;
-  cursor:pointer;
-  background:linear-gradient(135deg,#ffd77a,#c88721);
-  color:#3a1707;
+  background:#f6d98e;
+  color:#6a2412;
+  font-family:Georgia,serif;
   font-weight:bold;
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  box-shadow:0 10px 30px #0008;
+  cursor:pointer;
 }
+
 
 /* =========================
-   MAIN INVITATION
+   MAIN BACKGROUND
 ========================= */
 
-#invitation{
-  opacity:0;
-  transition:opacity 1.5s ease;
+main{
+  background:
+  radial-gradient(circle at top,#fff7df,#f6d18c 45%,#e8a95a 100%);
 }
 
-#invitation.show{
-  opacity:1;
+section{
+  padding:80px 20px;
+  position:relative;
 }
 
-.hero{
+
+/* =========================
+   FLOATING FLOWERS
+========================= */
+
+.flower{
+  position:fixed;
+  pointer-events:none;
+  z-index:2;
+  font-size:28px;
+  animation:floatFlower linear infinite;
+  opacity:.8;
+}
+
+.f1{left:6%;animation-duration:14s;}
+.f2{left:25%;animation-duration:18s;}
+.f3{left:70%;animation-duration:15s;}
+.f4{left:90%;animation-duration:20s;}
+
+@keyframes floatFlower{
+  from{
+    transform:translateY(110vh) rotate(0deg);
+  }
+  to{
+    transform:translateY(-20vh) rotate(360deg);
+  }
+}
+
+
+/* =========================
+   GANESH SECTION
+========================= */
+
+#ganesh{
   min-height:100vh;
-  padding:70px 20px 60px;
-  text-align:center;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  position:relative;
+  text-align:center;
 }
 
-/* FLOWERS */
-
-.flower{
-  position:absolute;
-  font-size:35px;
-  opacity:.8;
-  animation:float 5s ease-in-out infinite;
+.topDecor{
+  font-size:40px;
+  margin-bottom:15px;
 }
-
-.f1{top:8%;left:8%}
-.f2{top:15%;right:10%;animation-delay:1s}
-.f3{bottom:12%;left:12%;animation-delay:2s}
-.f4{bottom:15%;right:8%;animation-delay:3s}
-
-@keyframes float{
-  0%,100%{transform:translateY(0) rotate(0)}
-  50%{transform:translateY(-18px) rotate(12deg)}
-}
-
-/* GANESH SECTION */
 
 .ganeshFrame{
-  width:min(260px,75vw);
-  padding:10px;
+  width:min(320px,82vw);
+  height:min(320px,82vw);
   border-radius:50%;
-  background:linear-gradient(135deg,#ffe8a7,#b86a16);
-  box-shadow:0 15px 45px rgba(75,25,0,.35);
-  margin-bottom:25px;
+  padding:12px;
+  background:linear-gradient(135deg,#fff2bc,#b76a18,#fff2bc);
+  box-shadow:
+  0 20px 60px #7c3f1760,
+  inset 0 0 20px white;
+  margin:20px auto 28px;
 }
 
 .ganeshFrame img{
   width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
+  height:100%;
   border-radius:50%;
+  object-fit:cover;
   display:block;
-  border:5px solid #fff1c9;
 }
 
 .mantra{
-  max-width:700px;
-  font-size:clamp(19px,4vw,30px);
-  line-height:1.8;
-  color:#5c210e;
+  max-width:750px;
+  font-size:clamp(21px,5vw,34px);
+  line-height:1.7;
   font-weight:bold;
-  text-shadow:0 1px 0 #fff0c6;
+  color:#63331b;
+  text-shadow:0 2px 2px #fff9;
 }
 
-.divider{
-  margin:22px 0;
-  font-size:28px;
-  letter-spacing:10px;
-  color:#9b4d1d;
+.sparkles{
+  margin-top:22px;
+  color:#9d4e1e;
+  font-size:25px;
+  letter-spacing:15px;
 }
 
-.names{
-  font-size:clamp(45px,10vw,95px);
-  color:#6b1f14;
-  text-shadow:2px 2px 0 #fce4ae;
-  margin-top:15px;
-}
-
-.dateReveal{
-  margin-top:28px;
-  padding:18px 35px;
-  border-radius:50px;
-  background:rgba(255,248,220,.75);
-  box-shadow:0 10px 30px rgba(80,30,10,.18);
-  font-size:clamp(18px,4vw,25px);
-  font-weight:bold;
-  animation:pulse 2.5s infinite;
-}
-
-@keyframes pulse{
-  50%{
-    transform:scale(1.05);
-  }
-}
 
 /* =========================
-   EVENTS
+   COUPLE SECTION
 ========================= */
 
-.events{
-  padding:40px 15px 80px;
-  max-width:1100px;
-  margin:auto;
-}
-
-.sectionTitle{
+#couple{
   text-align:center;
-  font-size:clamp(35px,7vw,60px);
-  margin:45px 0 35px;
-  color:#651f12;
+  padding-top:100px;
 }
 
-.eventCard{
-  max-width:900px;
-  margin:30px auto;
-  background:rgba(255,249,231,.88);
-  border-radius:30px;
+.smallTitle{
+  text-transform:uppercase;
+  letter-spacing:5px;
+  font-size:12px;
+  margin-bottom:20px;
+}
+
+.coupleNames{
+  font-size:clamp(48px,12vw,95px);
+  line-height:1.05;
+  color:#742816;
+  text-shadow:2px 3px #ffe4a4;
+}
+
+.amp{
+  display:block;
+  font-size:clamp(35px,8vw,65px);
+  color:#bd7a28;
+  margin:10px 0;
+}
+
+.inviteText{
+  margin:28px auto;
+  max-width:600px;
+  font-size:20px;
+  line-height:1.7;
+}
+
+
+/* =========================
+   DATE REVEAL
+========================= */
+
+.dateCard{
+  max-width:600px;
+  margin:45px auto;
+  padding:35px 20px;
+  border-radius:35px;
+  background:#fff4d5d9;
+  border:1px solid #e5b766;
+  box-shadow:0 20px 50px #81461d35;
+}
+
+.dateLabel{
+  letter-spacing:4px;
+  font-size:13px;
+  text-transform:uppercase;
+}
+
+#weddingDateText{
+  margin-top:12px;
+  font-size:clamp(32px,8vw,56px);
+  color:#742816;
+  font-weight:bold;
+}
+
+.dateSub{
+  margin-top:10px;
+  font-size:17px;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+  max-width:750px;
+  margin:30px auto 0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.timeBox{
+  padding:20px 8px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#6e2818,#9c4a20);
+  color:#fff4ce;
+  box-shadow:0 10px 25px #5a1b1835;
+}
+
+.timeBox span{
+  display:block;
+  font-size:clamp(25px,7vw,48px);
+  font-weight:bold;
+}
+
+.timeBox small{
+  font-size:11px;
+  letter-spacing:2px;
+}
+
+
+/* =========================
+   EVENT SECTIONS
+========================= */
+
+.eventsTitle{
+  text-align:center;
+  font-size:clamp(35px,8vw,65px);
+  color:#742816;
+  margin-bottom:55px;
+}
+
+.event{
+  max-width:1050px;
+  margin:0 auto 80px;
+  border-radius:35px;
   overflow:hidden;
-  box-shadow:0 18px 50px rgba(72,26,9,.25);
-  border:2px solid rgba(190,120,38,.35);
+  box-shadow:0 25px 70px #65351f35;
+  background:#fff8e8;
 }
 
 .eventImage{
   width:100%;
-  height:380px;
+  height:400px;
+  overflow:hidden;
+  background:#e5b76b;
+}
+
+.eventImage img{
+  width:100%;
+  height:100%;
   object-fit:cover;
   display:block;
 }
 
 .eventContent{
-  padding:30px 25px;
+  padding:35px 25px 40px;
   text-align:center;
 }
 
-.eventName{
-  font-size:clamp(32px,6vw,52px);
+.eventTag{
+  letter-spacing:4px;
+  font-size:12px;
   margin-bottom:12px;
 }
 
-.haldiName{color:#b86b00}
-.mehendiName{color:#277340}
-.sangeetName{color:#68266f}
-
-.eventTag{
-  font-size:18px;
+.event h2{
+  font-size:clamp(40px,9vw,70px);
   margin-bottom:20px;
-  color:#6c4a35;
 }
 
-.details{
+.eventDescription{
+  max-width:650px;
+  margin:0 auto 25px;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.eventDetails{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
+  max-width:750px;
+  margin:auto;
 }
 
 .detail{
-  background:#fff5d7;
-  padding:15px 10px;
+  padding:18px 10px;
   border-radius:18px;
-  box-shadow:0 5px 15px rgba(0,0,0,.08);
+  background:#fff3d4;
 }
 
-.detail strong{
+.detail b{
   display:block;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 
-/* HALDI DECORATION */
 
-.haldiCard{
-  background:linear-gradient(180deg,#fff4b9,#fffaf0);
+/* HALDI */
+
+.haldi{
+  background:linear-gradient(145deg,#ffd84d,#f3a82e);
 }
 
-.haldiCard .eventImage{
-  border-bottom:7px solid #e6a400;
+.haldi .eventContent{
+  background:#fff5d2;
 }
 
-/* MEHENDI DECORATION */
-
-.mehendiCard{
-  background:
-    linear-gradient(180deg,#e9f4df,#fffaf0);
+.haldi h2{
+  color:#b65b0c;
 }
 
-.mehendiCard .eventImage{
-  border-bottom:7px solid #3f8a54;
+
+/* MEHENDI */
+
+.mehendi{
+  background:linear-gradient(145deg,#345f39,#7d9c54);
 }
 
-/* SANGEET DECORATION */
-
-.sangeetCard{
-  background:
-    linear-gradient(180deg,#2b1646,#fffaf0);
+.mehendi .eventContent{
+  background:#eef0d6;
 }
 
-.sangeetCard .eventContent{
-  background:#fffaf0;
+.mehendi h2{
+  color:#28512e;
 }
 
-.sangeetCard .eventImage{
-  border-bottom:7px solid #c27ad8;
+
+/* SANGEET */
+
+.sangeet{
+  background:linear-gradient(145deg,#321d63,#a1338d,#ef6f68);
 }
+
+.sangeet .eventContent{
+  background:#fff0f5;
+}
+
+.sangeet h2{
+  color:#7b205d;
+}
+
 
 /* =========================
-   FOOTER
+   END SECTION
 ========================= */
 
-.footer{
+#ending{
   text-align:center;
-  padding:60px 20px;
-  background:#3d160e;
-  color:#ffe9b4;
+  padding:100px 20px;
+  background:
+  radial-gradient(circle,#f8d994,#9e3e22 130%);
+  color:#fff5dc;
 }
 
-.footer h2{
-  font-size:clamp(30px,7vw,60px);
+#ending h2{
+  font-size:clamp(38px,9vw,75px);
 }
 
-.footer p{
-  margin-top:15px;
-  font-size:18px;
+#ending p{
+  margin-top:20px;
+  font-size:20px;
+  line-height:1.7;
 }
+
+
+/* MUSIC BUTTON */
+
+#musicBtn{
+  position:fixed;
+  right:18px;
+  bottom:20px;
+  z-index:100;
+  border:none;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#742816;
+  color:white;
+  font-size:22px;
+  box-shadow:0 8px 25px #0005;
+}
+
 
 /* MOBILE */
 
 @media(max-width:600px){
 
-  .hero{
-    padding-top:80px;
+  section{
+    padding:65px 16px;
   }
 
   .eventImage{
-    height:300px;
+    height:310px;
   }
 
-  .details{
+  .eventDetails{
     grid-template-columns:1fr;
   }
 
-  .ganeshFrame{
-    width:220px;
+  .countdown{
+    gap:8px;
+  }
+
+  .timeBox{
+    padding:15px 5px;
   }
 
 }
@@ -363,293 +522,513 @@ body{
 </style>
 </head>
 
+
 <body>
 
-
-<!-- ======================
-     GRAND GATE
-====================== -->
+<!-- GRAND GATE -->
 
 <div id="gateScreen">
 
-  <div class="gate leftGate"></div>
-  <div class="gate rightGate"></div>
-
-  <div class="gateContent">
-
+  <div class="gateTitle">
     <h1>Vikas ❤️ Khushi</h1>
-
-    <p>A Beautiful Beginning Awaits...</p>
-
-    <button class="openBtn" onclick="openInvitation()">
-      ✨ Open Invitation ✨
-    </button>
-
+    <p>A CELEBRATION OF LOVE</p>
   </div>
+
+  <div class="gate" id="gate">
+    <div class="door leftDoor"></div>
+    <div class="door rightDoor"></div>
+  </div>
+
+  <button id="enterBtn" onclick="openGate()">
+    ✦ Enter the Celebration ✦
+  </button>
 
 </div>
 
 
-<!-- ======================
-     INVITATION
-====================== -->
+<!-- FLOATING DECORATION -->
 
-<div id="invitation">
-
-
-<section class="hero">
-
-  <div class="flower f1">🌸</div>
-  <div class="flower f2">🌺</div>
-  <div class="flower f3">🌼</div>
-  <div class="flower f4">🌸</div>
+<div class="flower f1">🌸</div>
+<div class="flower f2">🌼</div>
+<div class="flower f3">🌺</div>
+<div class="flower f4">🌸</div>
 
 
-  <!-- GANESH PHOTO -->
+<main>
+
+
+<!-- GANESH -->
+
+<section id="ganesh">
+
+  <div class="topDecor">🌸 ✦ 🌸</div>
 
   <div class="ganeshFrame">
-
-    <img
-      src="file_000000033988211a0a14414fabbc34.png"
-      alt="Lord Ganesha">
-
+    <img src="file_0000000033988211a0a14414fabbc3a4.png" alt="Lord Ganesha">
   </div>
-
-
-  <!-- MANTRA -->
 
   <div class="mantra">
-
-    ॐ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।<br>
+    ॐ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>
     निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
-
   </div>
 
+  <div class="sparkles">✦ ✦ ✦</div>
 
-  <div class="divider">
-    ✦ ✦ ✦
-  </div>
+</section>
 
 
-  <p style="font-size:20px;letter-spacing:3px;">
+
+<!-- COUPLE -->
+
+<section id="couple">
+
+  <div class="smallTitle">
     Together with their families
-  </p>
+  </div>
 
-
-  <h1 class="names">
-
-    Vikas <span style="color:#c15b32;">&</span> Khushi
-
+  <h1 class="coupleNames">
+    Vikas
+    <span class="amp">&</span>
+    Khushi
   </h1>
+
+  <p class="inviteText">
+    Two hearts, one beautiful journey, and a lifetime of love,
+    laughter and togetherness.
+  </p>
 
 
   <!-- DATE -->
 
-  <div class="dateReveal">
+  <div class="dateCard">
 
-    💍 Save The Date 💍<br>
+    <div class="dateLabel">
+      Save The Date
+    </div>
 
-    <span style="font-size:26px;">
+    <div id="weddingDateText">
       Wedding Celebration
-    </span>
+    </div>
+
+    <div class="dateSub">
+      We request the pleasure of your presence
+    </div>
 
   </div>
 
+
+  <!-- COUNTDOWN -->
+
+  <div class="countdown">
+
+    <div class="timeBox">
+      <span id="days">00</span>
+      <small>DAYS</small>
+    </div>
+
+    <div class="timeBox">
+      <span id="hours">00</span>
+      <small>HOURS</small>
+    </div>
+
+    <div class="timeBox">
+      <span id="minutes">00</span>
+      <small>MINUTES</small>
+    </div>
+
+    <div class="timeBox">
+      <span id="seconds">00</span>
+      <small>SECONDS</small>
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- ======================
-     EVENTS
-====================== -->
 
-<section class="events">
+<!-- EVENTS -->
 
-<h2 class="sectionTitle">
-  Our Wedding Celebrations
-</h2>
+<section>
+
+  <h2 class="eventsTitle">
+    Our Wedding Celebrations
+  </h2>
 
 
-<!-- HALDI -->
+  <!-- HALDI -->
 
-<div class="eventCard haldiCard">
+  <div class="event haldi">
 
-  <img
-    class="eventImage"
-    src="haldi_2_weding.png"
-    alt="Haldi Celebration">
+    <div class="eventImage">
+      <img src="haldi_2_wedding.png" alt="Haldi Celebration">
+    </div>
 
-  <div class="eventContent">
+    <div class="eventContent">
 
-    <h2 class="eventName haldiName">
-      🌼 Haldi Ceremony 🌼
-    </h2>
+      <div class="eventTag">YELLOW • JOY • CELEBRATION</div>
 
-    <p class="eventTag">
-      A celebration painted in shades of sunshine,
-      laughter and love.
-    </p>
+      <h2>Haldi</h2>
 
-    <div class="details">
+      <p class="eventDescription">
+        A beautiful celebration filled with laughter, colours,
+        turmeric, flowers and endless happiness.
+      </p>
 
-      <div class="detail">
-        <strong>📅 Date</strong>
-        To Be Announced
-      </div>
+      <div class="eventDetails">
 
-      <div class="detail">
-        <strong>⏰ Time</strong>
-        To Be Announced
-      </div>
+        <div class="detail">
+          <b>📅 DATE</b>
+          To Be Announced
+        </div>
 
-      <div class="detail">
-        <strong>📍 Venue</strong>
-        To Be Announced
+        <div class="detail">
+          <b>🕒 TIME</b>
+          To Be Announced
+        </div>
+
+        <div class="detail">
+          <b>📍 VENUE</b>
+          To Be Announced
+        </div>
+
       </div>
 
     </div>
 
   </div>
 
-</div>
 
 
-<!-- MEHENDI -->
+  <!-- MEHENDI -->
 
-<div class="eventCard mehendiCard">
+  <div class="event mehendi">
 
-  <img
-    class="eventImage"
-    src="file_000000093cc8211a2778527b020c91.png"
-    alt="Mehendi Celebration">
+    <div class="eventImage">
+      <img src="file_0000000093cc8211a27785279b020c91.png" alt="Mehendi Celebration">
+    </div>
 
-  <div class="eventContent">
+    <div class="eventContent">
 
-    <h2 class="eventName mehendiName">
-      🌿 Mehendi Ceremony 🌿
-    </h2>
+      <div class="eventTag">ART • COLOUR • TRADITION</div>
 
-    <p class="eventTag">
-      Beautiful hands, beautiful designs
-      and memories waiting to bloom.
-    </p>
+      <h2>Mehendi</h2>
 
-    <div class="details">
+      <p class="eventDescription">
+        Beautiful hands, intricate mehendi, joyful music
+        and the beginning of unforgettable celebrations.
+      </p>
 
-      <div class="detail">
-        <strong>📅 Date</strong>
-        To Be Announced
-      </div>
+      <div class="eventDetails">
 
-      <div class="detail">
-        <strong>⏰ Time</strong>
-        To Be Announced
-      </div>
+        <div class="detail">
+          <b>📅 DATE</b>
+          To Be Announced
+        </div>
 
-      <div class="detail">
-        <strong>📍 Venue</strong>
-        To Be Announced
+        <div class="detail">
+          <b>🕒 TIME</b>
+          To Be Announced
+        </div>
+
+        <div class="detail">
+          <b>📍 VENUE</b>
+          To Be Announced
+        </div>
+
       </div>
 
     </div>
 
   </div>
 
-</div>
 
 
-<!-- SANGEET -->
+  <!-- SANGEET -->
 
-<div class="eventCard sangeetCard">
+  <div class="event sangeet">
 
-  <img
-    class="eventImage"
-    src="file_0000000ed8882118acabb93c93e0e4f.png"
-    alt="Sangeet Celebration">
+    <div class="eventImage">
+      <img src="file_00000000ed8882118acabb93c93e0e4f.png" alt="Sangeet Celebration">
+    </div>
 
-  <div class="eventContent">
+    <div class="eventContent">
 
-    <h2 class="eventName sangeetName">
-      🎶 Sangeet Night 🎶
-    </h2>
+      <div class="eventTag">MUSIC • DANCE • PARTY</div>
 
-    <p class="eventTag">
-      Music in the air, love everywhere,
-      and a night made for dancing.
-    </p>
+      <h2>Sangeet</h2>
 
-    <div class="details">
+      <p class="eventDescription">
+        Turn up the music, light up the night,
+        and dance as we celebrate love together.
+      </p>
 
-      <div class="detail">
-        <strong>📅 Date</strong>
-        To Be Announced
-      </div>
+      <div class="eventDetails">
 
-      <div class="detail">
-        <strong>⏰ Time</strong>
-        To Be Announced
-      </div>
+        <div class="detail">
+          <b>📅 DATE</b>
+          To Be Announced
+        </div>
 
-      <div class="detail">
-        <strong>📍 Venue</strong>
-        To Be Announced
+        <div class="detail">
+          <b>🕒 TIME</b>
+          To Be Announced
+        </div>
+
+        <div class="detail">
+          <b>📍 VENUE</b>
+          To Be Announced
+        </div>
+
       </div>
 
     </div>
 
   </div>
-
-</div>
-
 
 </section>
 
 
-<footer class="footer">
+
+<!-- ENDING -->
+
+<section id="ending">
+
+  <div>✦ 🌸 ✦</div>
 
   <h2>
-    We Can't Wait To Celebrate With You ❤️
+    We can't wait to celebrate with you
   </h2>
 
   <p>
-    Vikas & Khushi
+    Your presence will make our special day
+    even more beautiful ❤️
   </p>
 
-  <p>
-    With love and blessings from both families
-  </p>
+  <div style="margin-top:30px;font-size:30px">
+    Vikas ❤️ Khushi
+  </div>
 
-</footer>
+</section>
 
 
-</div>
+</main>
+
+
+<button id="musicBtn" onclick="toggleMusic()">
+  🎵
+</button>
 
 
 <script>
 
-function openInvitation(){
+/* ===================================
+   WEDDING DATE
+   CHANGE ONLY THIS LINE LATER
+=================================== */
 
-  document.querySelector(".leftGate")
-    .classList.add("open");
+/*
+Example:
+const WEDDING_DATE = new Date("2026-12-10T19:00:00+05:30");
+*/
 
-  document.querySelector(".rightGate")
-    .classList.add("open");
+const WEDDING_DATE = new Date("2026-12-31T19:00:00+05:30");
 
+
+/* DATE DISPLAY */
+
+document.getElementById("weddingDateText").innerText =
+WEDDING_DATE.toLocaleDateString(
+  "en-IN",
+  {
+    weekday:"long",
+    day:"numeric",
+    month:"long",
+    year:"numeric"
+  }
+);
+
+
+/* COUNTDOWN */
+
+function updateCountdown(){
+
+  const now = new Date();
+  const distance = WEDDING_DATE - now;
+
+  if(distance <= 0){
+
+    document.getElementById("days").innerText="00";
+    document.getElementById("hours").innerText="00";
+    document.getElementById("minutes").innerText="00";
+    document.getElementById("seconds").innerText="00";
+
+    return;
+  }
+
+  const days =
+  Math.floor(distance / (1000*60*60*24));
+
+  const hours =
+  Math.floor(
+    (distance % (1000*60*60*24))
+    /(1000*60*60)
+  );
+
+  const minutes =
+  Math.floor(
+    (distance % (1000*60*60))
+    /(1000*60)
+  );
+
+  const seconds =
+  Math.floor(
+    (distance % (1000*60))
+    /1000
+  );
+
+  document.getElementById("days").innerText =
+  String(days).padStart(2,"0");
+
+  document.getElementById("hours").innerText =
+  String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").innerText =
+  String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").innerText =
+  String(seconds).padStart(2,"0");
+
+}
+
+setInterval(updateCountdown,1000);
+updateCountdown();
+
+
+
+/* GRAND GATE */
+
+function openGate(){
+
+  document.getElementById("gate")
+  .classList.add("open");
+
+  startMusic();
 
   setTimeout(function(){
 
     document.getElementById("gateScreen")
-      .style.display="none";
+    .style.display="none";
 
-    document.getElementById("invitation")
-      .classList.add("show");
+  },2600);
 
-  },2200);
+}
+
+
+
+/* ===================================
+   SIMPLE BUILT-IN WEDDING MUSIC
+   No audio file required
+=================================== */
+
+let audioContext;
+let musicOn=false;
+let musicInterval;
+
+function playBell(freq,duration){
+
+  if(!audioContext) return;
+
+  const oscillator =
+  audioContext.createOscillator();
+
+  const gain =
+  audioContext.createGain();
+
+  oscillator.frequency.value=freq;
+
+  oscillator.type="sine";
+
+  gain.gain.setValueAtTime(
+    0.0001,
+    audioContext.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.12,
+    audioContext.currentTime+0.05
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    0.0001,
+    audioContext.currentTime+duration
+  );
+
+  oscillator.connect(gain);
+  gain.connect(audioContext.destination);
+
+  oscillator.start();
+
+  oscillator.stop(
+    audioContext.currentTime+duration
+  );
+
+}
+
+
+function startMusic(){
+
+  if(musicOn) return;
+
+  audioContext =
+  new (window.AudioContext ||
+  window.webkitAudioContext)();
+
+  musicOn=true;
+
+  let notes=[
+    523,659,784,659,
+    587,698,880,698
+  ];
+
+  let i=0;
+
+  musicInterval=setInterval(function(){
+
+    playBell(notes[i%notes.length],1.2);
+
+    i++;
+
+  },1400);
+
+}
+
+
+function toggleMusic(){
+
+  if(!musicOn){
+
+    startMusic();
+
+    document.getElementById("musicBtn")
+    .innerText="🎵";
+
+  }
+
+  else{
+
+    clearInterval(musicInterval);
+
+    musicOn=false;
+
+    document.getElementById("musicBtn")
+    .innerText="🔇";
+
+  }
 
 }
 
 </script>
-
 
 </body>
 </html>
