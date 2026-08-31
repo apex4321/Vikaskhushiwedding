@@ -20,294 +20,194 @@ html{
 body{
   font-family: Georgia, serif;
   background:
-    radial-gradient(circle at top, #5a111b 0%, #26040a 45%, #120104 100%);
-  color:#fff8e7;
+    radial-gradient(circle at top, #f9e6c0 0%, #e9b96f 40%, #6b2d1b 100%);
+  color:#3c1c13;
   overflow-x:hidden;
 }
 
 /* =========================
-   DECORATIVE BACKGROUND
+   GRAND GATE SCREEN
 ========================= */
 
-body:before,
-body:after{
-  content:"";
+#gateScreen{
   position:fixed;
-  width:350px;
-  height:350px;
-  border-radius:50%;
-  filter:blur(100px);
-  opacity:.15;
-  z-index:-1;
-}
-
-body:before{
-  background:#d4a63b;
-  top:-100px;
-  left:-100px;
-}
-
-body:after{
-  background:#ff6b81;
-  bottom:-100px;
-  right:-100px;
-}
-
-/* =========================
-   FLOATING PETALS
-========================= */
-
-.petal{
-  position:fixed;
-  color:#ffb6c1;
-  pointer-events:none;
-  animation:fall linear infinite;
-  opacity:.7;
-  z-index:2;
-}
-
-.p1{left:5%; animation-duration:12s;}
-.p2{left:20%; animation-duration:16s;}
-.p3{left:40%; animation-duration:10s;}
-.p4{left:60%; animation-duration:18s;}
-.p5{left:80%; animation-duration:13s;}
-.p6{left:92%; animation-duration:15s;}
-
-@keyframes fall{
-  from{
-    transform:translateY(-50px) rotate(0deg);
-  }
-  to{
-    transform:translateY(110vh) rotate(360deg);
-  }
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-  min-height:100vh;
-  position:relative;
-  padding:50px 20px 70px;
-  text-align:center;
+  inset:0;
+  z-index:9999;
+  background:#180d08;
   overflow:hidden;
-
-  background:
-  radial-gradient(circle at center top, rgba(255,191,72,.22), transparent 30%),
-  linear-gradient(135deg,#250307,#5a101b,#1a0206);
-}
-
-.hero:before{
-  content:"";
-  position:absolute;
-  inset:20px;
-  border:1px solid rgba(222,180,83,.35);
-  border-radius:30px;
-  pointer-events:none;
-}
-
-.hero-flower{
-  position:absolute;
-  font-size:70px;
-  opacity:.6;
-}
-
-.flower1{
-  top:20px;
-  left:20px;
-}
-
-.flower2{
-  top:20px;
-  right:20px;
-}
-
-.flower3{
-  bottom:20px;
-  left:30px;
-}
-
-.flower4{
-  bottom:20px;
-  right:30px;
-}
-
-/* =========================
-   GANESH SECTION
-========================= */
-
-.ganesh-wrap{
-  margin:auto;
-  width:250px;
-  height:250px;
-  position:relative;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-/* GOLD HALO */
-
-.ganesh-wrap:before{
-  content:"";
+.gate{
   position:absolute;
-  width:230px;
-  height:230px;
-  border-radius:50%;
-  border:2px solid #d9ad4c;
-  box-shadow:
-  0 0 20px #d9ad4c,
-  0 0 60px rgba(217,173,76,.5),
-  inset 0 0 40px rgba(217,173,76,.3);
+  top:0;
+  width:50%;
+  height:100%;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #3b160b 0px,
+      #5d2411 15px,
+      #2b0d06 30px
+    );
+  border:8px solid #d8a84f;
+  transition:transform 2.2s cubic-bezier(.7,0,.2,1);
 }
 
-/* Decorative circles */
-
-.ganesh-wrap:after{
-  content:"✦ ✦ ✦ ✦ ✦";
-  position:absolute;
-  font-size:28px;
-  letter-spacing:15px;
-  color:#f5d27d;
-  animation:rotateStars 12s linear infinite;
+.leftGate{
+  left:0;
+  border-left:none;
 }
 
-@keyframes rotateStars{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
+.rightGate{
+  right:0;
+  border-right:none;
 }
 
-/* GANESH ART */
+.gate.open.leftGate{
+  transform:translateX(-105%);
+}
 
-.ganesh-art{
+.gate.open.rightGate{
+  transform:translateX(105%);
+}
+
+.gateContent{
   position:relative;
-  z-index:2;
-  font-size:130px;
-  filter:
-  drop-shadow(0 0 10px #d7a84d)
-  drop-shadow(0 0 30px #f6c55f);
-  animation:ganeshGlow 3s infinite alternate;
+  z-index:10;
+  text-align:center;
+  color:#fff4d6;
+  padding:25px;
 }
 
-@keyframes ganeshGlow{
-  from{
-    transform:scale(1);
-  }
-  to{
-    transform:scale(1.05);
-  }
+.gateContent h1{
+  font-size:clamp(38px,8vw,80px);
+  letter-spacing:4px;
+  text-shadow:0 5px 20px #000;
 }
 
-.mantra-box{
-  max-width:700px;
-  margin:20px auto;
-  padding:18px 25px;
-  border-top:1px solid #d8aa48;
-  border-bottom:1px solid #d8aa48;
-  background:rgba(0,0,0,.2);
+.gateContent p{
+  margin-top:15px;
+  font-size:18px;
+  letter-spacing:2px;
 }
 
-.mantra-title{
-  font-size:24px;
-  color:#f7d479;
-  margin-bottom:12px;
+.openBtn{
+  margin-top:35px;
+  border:none;
+  padding:16px 38px;
+  border-radius:50px;
+  font-size:17px;
+  cursor:pointer;
+  background:linear-gradient(135deg,#ffd77a,#c88721);
+  color:#3a1707;
+  font-weight:bold;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+
+/* =========================
+   MAIN INVITATION
+========================= */
+
+#invitation{
+  opacity:0;
+  transition:opacity 1.5s ease;
+}
+
+#invitation.show{
+  opacity:1;
+}
+
+.hero{
+  min-height:100vh;
+  padding:70px 20px 60px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+/* FLOWERS */
+
+.flower{
+  position:absolute;
+  font-size:35px;
+  opacity:.8;
+  animation:float 5s ease-in-out infinite;
+}
+
+.f1{top:8%;left:8%}
+.f2{top:15%;right:10%;animation-delay:1s}
+.f3{bottom:12%;left:12%;animation-delay:2s}
+.f4{bottom:15%;right:8%;animation-delay:3s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(-18px) rotate(12deg)}
+}
+
+/* GANESH SECTION */
+
+.ganeshFrame{
+  width:min(260px,75vw);
+  padding:10px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ffe8a7,#b86a16);
+  box-shadow:0 15px 45px rgba(75,25,0,.35);
+  margin-bottom:25px;
+}
+
+.ganeshFrame img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
+  border:5px solid #fff1c9;
 }
 
 .mantra{
-  font-size:20px;
-  line-height:1.7;
-  color:#fff3d4;
+  max-width:700px;
+  font-size:clamp(19px,4vw,30px);
+  line-height:1.8;
+  color:#5c210e;
+  font-weight:bold;
+  text-shadow:0 1px 0 #fff0c6;
 }
 
-/* =========================
-   INVITATION TEXT
-========================= */
-
-.small-title{
-  margin-top:35px;
-  letter-spacing:5px;
-  text-transform:uppercase;
-  color:#d9ad4c;
-  font-size:13px;
+.divider{
+  margin:22px 0;
+  font-size:28px;
+  letter-spacing:10px;
+  color:#9b4d1d;
 }
 
 .names{
-  font-size:clamp(58px,10vw,110px);
-  margin:10px 0;
-  font-style:italic;
-  color:#f9d67d;
-  text-shadow:0 0 20px rgba(240,190,90,.5);
+  font-size:clamp(45px,10vw,95px);
+  color:#6b1f14;
+  text-shadow:2px 2px 0 #fce4ae;
+  margin-top:15px;
 }
 
-.and{
-  color:#fff;
-  font-size:40px;
-}
-
-.getting{
-  font-size:18px;
-  letter-spacing:6px;
-  margin-top:10px;
-}
-
-.date-card{
-  display:inline-block;
-  margin-top:30px;
-  padding:15px 45px;
+.dateReveal{
+  margin-top:28px;
+  padding:18px 35px;
   border-radius:50px;
-  background:linear-gradient(135deg,#f8e6b0,#d7a33c,#f7e3a5);
-  color:#4b0710;
-  font-size:24px;
+  background:rgba(255,248,220,.75);
+  box-shadow:0 10px 30px rgba(80,30,10,.18);
+  font-size:clamp(18px,4vw,25px);
   font-weight:bold;
-  box-shadow:0 10px 30px rgba(0,0,0,.4);
+  animation:pulse 2.5s infinite;
 }
 
-/* =========================
-   COUNTDOWN
-========================= */
-
-.countdown-section{
-  padding:60px 20px;
-  text-align:center;
-  background:#fff7e9;
-  color:#3a1015;
-}
-
-.section-heading{
-  font-size:28px;
-  letter-spacing:3px;
-  margin-bottom:30px;
-}
-
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-.time-box{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  background:
-  radial-gradient(circle,#fffdf8,#f7e7bf);
-  border:3px solid #d8aa48;
-  box-shadow:0 10px 25px rgba(120,70,20,.2);
-}
-
-.time-box span{
-  font-size:32px;
-  font-weight:bold;
-  color:#65101d;
-}
-
-.time-box small{
-  letter-spacing:2px;
+@keyframes pulse{
+  50%{
+    transform:scale(1.05);
+  }
 }
 
 /* =========================
@@ -315,415 +215,107 @@ body:after{
 ========================= */
 
 .events{
-  padding:80px 20px;
-  background:
-  linear-gradient(rgba(255,248,235,.95),rgba(255,248,235,.98)),
-  radial-gradient(circle at top,#ffe2a0,transparent 50%);
-  color:#351016;
-}
-
-.events-intro{
-  text-align:center;
-  margin-bottom:50px;
-}
-
-.events-intro h2{
-  font-size:42px;
-  color:#681322;
-}
-
-.events-intro p{
-  margin-top:12px;
-  color:#87605a;
-}
-
-/* EVENT GRID */
-
-.event-grid{
-  max-width:1250px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:28px;
-}
-
-/* =========================
-   EVENT CARD
-========================= */
-
-.event-card{
-  min-height:470px;
-  border-radius:25px;
-  overflow:hidden;
-  position:relative;
-  padding:20px;
-  box-shadow:0 15px 35px rgba(0,0,0,.2);
-  transition:.4s;
-}
-
-.event-card:hover{
-  transform:translateY(-12px) scale(1.02);
-}
-
-/* =========================
-   HALDI
-========================= */
-
-.haldi{
-  background:
-  linear-gradient(to bottom,
-  rgba(255,202,53,.2),
-  rgba(255,145,0,.85)),
-  #ffd84d;
-}
-
-.haldi-art{
-  height:230px;
-  border-radius:18px;
-  margin-bottom:18px;
-  position:relative;
-  overflow:hidden;
-
-  background:
-  radial-gradient(circle at 20% 20%,#fff6b5 0 4%,transparent 5%),
-  radial-gradient(circle at 80% 30%,#ffb000 0 5%,transparent 6%),
-  linear-gradient(135deg,#f7c542,#ff861d);
-}
-
-/* CREATIVE ILLUSTRATION */
-
-.haldi-person{
-  position:absolute;
-  bottom:0;
-  width:95px;
-  height:165px;
-  border-radius:50px 50px 15px 15px;
-  background:#f4b88c;
-  box-shadow:0 0 0 8px rgba(255,255,255,.15);
-}
-
-.haldi-person:before{
-  content:"";
-  position:absolute;
-  width:70px;
-  height:70px;
-  border-radius:50%;
-  background:#8c4d2b;
-  top:-55px;
-  left:12px;
-}
-
-.haldi-person:after{
-  content:"";
-  position:absolute;
-  width:120px;
-  height:100px;
-  background:#ffbe19;
-  border-radius:70px 70px 0 0;
-  left:-12px;
-  bottom:0;
-}
-
-.groom-art{
-  left:28%;
-}
-
-.bride-art{
-  right:28%;
-}
-
-.bride-art:after{
-  background:#f59b18;
-}
-
-/* Haldi decorations */
-
-.haldi-art .sun{
-  position:absolute;
-  width:55px;
-  height:55px;
-  border-radius:50%;
-  background:#fff6b8;
-  top:20px;
-  right:20px;
-  box-shadow:0 0 30px #fff;
-}
-
-.haldi-art .flowers{
-  position:absolute;
-  bottom:5px;
-  left:5px;
-  right:5px;
-  font-size:35px;
-}
-
-/* =========================
-   MEHENDI
-========================= */
-
-.mehendi{
-  background:
-  radial-gradient(circle at top,#b6e2aa,transparent 50%),
-  linear-gradient(145deg,#1c5b45,#073d2f);
-  color:#fff;
-}
-
-.mehendi-art{
-  height:230px;
-  border-radius:18px;
-  position:relative;
-  overflow:hidden;
-  margin-bottom:18px;
-
-  background:
-  repeating-radial-gradient(circle at center,
-  rgba(255,255,255,.1) 0 3px,
-  transparent 4px 16px),
-  linear-gradient(135deg,#154d3d,#52a678);
-}
-
-.mehendi-hand{
-  position:absolute;
-  width:130px;
-  height:190px;
-  background:#d7905f;
-  border-radius:60px 60px 20px 20px;
-  bottom:-40px;
-  left:60px;
-  transform:rotate(-20deg);
-}
-
-.mehendi-hand:before{
-  content:"✦ ❀ ✦ ❀";
-  color:#57291a;
-  font-size:27px;
-  position:absolute;
-  top:35px;
-  left:25px;
-  writing-mode:vertical-rl;
-}
-
-.mehendi-pattern{
-  position:absolute;
-  right:20px;
-  top:30px;
-  font-size:70px;
-  color:#d9bf7a;
-  opacity:.8;
-}
-
-/* =========================
-   SANGEET
-========================= */
-
-.sangeet{
-  background:
-  radial-gradient(circle at 50% 0,#8439c7,transparent 50%),
-  linear-gradient(145deg,#1d083c,#400d66);
-  color:white;
-}
-
-.sangeet-art{
-  height:230px;
-  border-radius:18px;
-  margin-bottom:18px;
-  position:relative;
-  overflow:hidden;
-
-  background:
-  linear-gradient(135deg,#12052d,#58258d,#10296a);
-}
-
-.music-note{
-  position:absolute;
-  font-size:50px;
-  animation:dance 2s infinite alternate;
-}
-
-.note1{left:15%;top:20%;}
-.note2{right:20%;top:45%;animation-delay:.4s;}
-.note3{left:45%;bottom:10%;animation-delay:.8s;}
-
-@keyframes dance{
-  from{transform:translateY(0) rotate(-10deg);}
-  to{transform:translateY(-20px) rotate(10deg);}
-}
-
-.disco{
-  position:absolute;
-  width:80px;
-  height:80px;
-  border-radius:50%;
-  background:
-  repeating-linear-gradient(45deg,#f7d77b 0 8px,#8f4ae5 8px 16px);
-  top:25px;
-  left:calc(50% - 40px);
-  box-shadow:0 0 40px #d09aff;
-}
-
-/* =========================
-   WEDDING
-========================= */
-
-.wedding{
-  background:
-  linear-gradient(145deg,#7a1019,#350208);
-  color:#fff;
-}
-
-.wedding-art{
-  height:230px;
-  border-radius:18px;
-  margin-bottom:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:110px;
-
-  background:
-  radial-gradient(circle,#f6d38d 0%,#9d1824 40%,#350108 80%);
-}
-
-/* =========================
-   RECEPTION
-========================= */
-
-.reception{
-  background:
-  linear-gradient(145deg,#151c32,#0b0916);
-  color:white;
-}
-
-.reception-art{
-  height:230px;
-  border-radius:18px;
-  margin-bottom:18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:100px;
-
-  background:
-  radial-gradient(circle at top,#f4d897,#1a1931 45%,#07070c);
-}
-
-/* =========================
-   EVENT CONTENT
-========================= */
-
-.event-icon{
-  font-size:35px;
-}
-
-.event-card h3{
-  font-size:32px;
-  margin:12px 0;
-}
-
-.event-card p{
-  line-height:1.8;
-}
-
-.event-details{
-  margin-top:20px;
-  padding:15px;
-  border-radius:15px;
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(5px);
-}
-
-.event-details div{
-  margin:7px 0;
-}
-
-/* =========================
-   STORY SECTION
-========================= */
-
-.story{
-  padding:90px 20px;
-  background:#31070d;
-}
-
-.story h2{
-  text-align:center;
-  font-size:42px;
-  color:#f5cf79;
-  margin-bottom:50px;
-}
-
-.story-grid{
+  padding:40px 15px 80px;
   max-width:1100px;
   margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
 }
 
-.story-card{
-  min-height:280px;
-  border-radius:20px;
-  overflow:hidden;
-  position:relative;
-  background:
-  linear-gradient(135deg,
-  rgba(255,255,255,.12),
-  rgba(255,255,255,.02));
-  border:1px solid rgba(240,190,90,.4);
-}
-
-.story-card .photo-placeholder{
-  height:210px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:70px;
-  background:
-  radial-gradient(circle at center,#d59a59,#6b1721,#200308);
-}
-
-.story-card p{
-  padding:15px;
+.sectionTitle{
   text-align:center;
-  color:#f7e5bc;
+  font-size:clamp(35px,7vw,60px);
+  margin:45px 0 35px;
+  color:#651f12;
 }
 
-/* =========================
-   VENUE
-========================= */
-
-.venue{
-  padding:90px 20px;
-  background:
-  linear-gradient(rgba(30,2,6,.85),rgba(30,2,6,.95));
-}
-
-.venue-box{
-  max-width:1100px;
-  margin:auto;
-  padding:40px;
+.eventCard{
+  max-width:900px;
+  margin:30px auto;
+  background:rgba(255,249,231,.88);
   border-radius:30px;
+  overflow:hidden;
+  box-shadow:0 18px 50px rgba(72,26,9,.25);
+  border:2px solid rgba(190,120,38,.35);
+}
+
+.eventImage{
+  width:100%;
+  height:380px;
+  object-fit:cover;
+  display:block;
+}
+
+.eventContent{
+  padding:30px 25px;
   text-align:center;
+}
 
+.eventName{
+  font-size:clamp(32px,6vw,52px);
+  margin-bottom:12px;
+}
+
+.haldiName{color:#b86b00}
+.mehendiName{color:#277340}
+.sangeetName{color:#68266f}
+
+.eventTag{
+  font-size:18px;
+  margin-bottom:20px;
+  color:#6c4a35;
+}
+
+.details{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.detail{
+  background:#fff5d7;
+  padding:15px 10px;
+  border-radius:18px;
+  box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.detail strong{
+  display:block;
+  margin-bottom:6px;
+}
+
+/* HALDI DECORATION */
+
+.haldiCard{
+  background:linear-gradient(180deg,#fff4b9,#fffaf0);
+}
+
+.haldiCard .eventImage{
+  border-bottom:7px solid #e6a400;
+}
+
+/* MEHENDI DECORATION */
+
+.mehendiCard{
   background:
-  radial-gradient(circle at top,#7b2a22,#270207);
-  border:1px solid #d7a94d;
-  box-shadow:0 20px 50px rgba(0,0,0,.5);
+    linear-gradient(180deg,#e9f4df,#fffaf0);
 }
 
-.venue-icon{
-  font-size:65px;
+.mehendiCard .eventImage{
+  border-bottom:7px solid #3f8a54;
 }
 
-.venue-box h2{
-  font-size:42px;
-  color:#f3cf7a;
-  margin:15px 0;
+/* SANGEET DECORATION */
+
+.sangeetCard{
+  background:
+    linear-gradient(180deg,#2b1646,#fffaf0);
 }
 
-.venue-box p{
-  font-size:20px;
-  line-height:1.8;
+.sangeetCard .eventContent{
+  background:#fffaf0;
+}
+
+.sangeetCard .eventImage{
+  border-bottom:7px solid #c27ad8;
 }
 
 /* =========================
@@ -732,488 +324,329 @@ body:after{
 
 .footer{
   text-align:center;
-  padding:70px 20px;
-  background:#150105;
+  padding:60px 20px;
+  background:#3d160e;
+  color:#ffe9b4;
 }
 
 .footer h2{
-  font-size:40px;
-  color:#f5cf79;
+  font-size:clamp(30px,7vw,60px);
 }
 
 .footer p{
-  margin-top:20px;
+  margin-top:15px;
   font-size:18px;
-  line-height:1.8;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:600px){
 
   .hero{
-    padding-top:35px;
+    padding-top:80px;
   }
 
-  .ganesh-wrap{
-    width:200px;
-    height:200px;
+  .eventImage{
+    height:300px;
   }
 
-  .ganesh-wrap:before{
-    width:185px;
-    height:185px;
+  .details{
+    grid-template-columns:1fr;
   }
 
-  .ganesh-art{
-    font-size:105px;
-  }
-
-  .mantra{
-    font-size:16px;
-  }
-
-  .names{
-    font-size:58px;
-  }
-
-  .event-card{
-    min-height:auto;
-  }
-
-  .story h2,
-  .events-intro h2,
-  .venue-box h2{
-    font-size:32px;
-  }
-
-  .date-card{
-    font-size:19px;
-    padding:14px 25px;
+  .ganeshFrame{
+    width:220px;
   }
 
 }
+
 </style>
 </head>
-
 
 <body>
 
 
-<!-- FLOATING PETALS -->
+<!-- ======================
+     GRAND GATE
+====================== -->
 
-<div class="petal p1">🌸</div>
-<div class="petal p2">🌹</div>
-<div class="petal p3">🌸</div>
-<div class="petal p4">🌺</div>
-<div class="petal p5">🌹</div>
-<div class="petal p6">🌸</div>
+<div id="gateScreen">
+
+  <div class="gate leftGate"></div>
+  <div class="gate rightGate"></div>
+
+  <div class="gateContent">
+
+    <h1>Vikas ❤️ Khushi</h1>
+
+    <p>A Beautiful Beginning Awaits...</p>
+
+    <button class="openBtn" onclick="openInvitation()">
+      ✨ Open Invitation ✨
+    </button>
+
+  </div>
+
+</div>
 
 
-<!-- HERO SECTION -->
+<!-- ======================
+     INVITATION
+====================== -->
+
+<div id="invitation">
+
 
 <section class="hero">
 
-<div class="hero-flower flower1">🌺 🌸</div>
-<div class="hero-flower flower2">🌸 🌺</div>
-<div class="hero-flower flower3">🌹</div>
-<div class="hero-flower flower4">🌹</div>
+  <div class="flower f1">🌸</div>
+  <div class="flower f2">🌺</div>
+  <div class="flower f3">🌼</div>
+  <div class="flower f4">🌸</div>
 
 
-<!-- GANESH -->
+  <!-- GANESH PHOTO -->
 
-<div class="ganesh-wrap">
-  <div class="ganesh-art">🙏</div>
-</div>
+  <div class="ganeshFrame">
 
+    <img
+      src="file_000000033988211a0a14414fabbc34.png"
+      alt="Lord Ganesha">
 
-<div class="mantra-box">
-
-<div class="mantra-title">
-॥ श्री गणेशाय नमः ॥
-</div>
-
-<div class="mantra">
-वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>
-निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
-</div>
-
-</div>
+  </div>
 
 
-<div class="small-title">
-Two Hearts • One Beautiful Journey
-</div>
+  <!-- MANTRA -->
+
+  <div class="mantra">
+
+    ॐ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।<br>
+    निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
+
+  </div>
 
 
-<div class="names">
-Vikas <span class="and">♥</span> Khushi
-</div>
+  <div class="divider">
+    ✦ ✦ ✦
+  </div>
 
 
-<div class="getting">
-ARE GETTING MARRIED
-</div>
+  <p style="font-size:20px;letter-spacing:3px;">
+    Together with their families
+  </p>
 
 
-<div class="date-card">
-YOUR WEDDING DATE HERE
-</div>
+  <h1 class="names">
+
+    Vikas <span style="color:#c15b32;">&</span> Khushi
+
+  </h1>
+
+
+  <!-- DATE -->
+
+  <div class="dateReveal">
+
+    💍 Save The Date 💍<br>
+
+    <span style="font-size:26px;">
+      Wedding Celebration
+    </span>
+
+  </div>
 
 
 </section>
 
 
-
-<!-- COUNTDOWN -->
-
-<section class="countdown-section">
-
-<h2 class="section-heading">
-COUNTING DOWN TO OUR BIG DAY
-</h2>
-
-<div class="countdown">
-
-<div class="time-box">
-<span id="days">00</span>
-<small>DAYS</small>
-</div>
-
-<div class="time-box">
-<span id="hours">00</span>
-<small>HOURS</small>
-</div>
-
-<div class="time-box">
-<span id="minutes">00</span>
-<small>MINUTES</small>
-</div>
-
-<div class="time-box">
-<span id="seconds">00</span>
-<small>SECONDS</small>
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- EVENTS -->
+<!-- ======================
+     EVENTS
+====================== -->
 
 <section class="events">
 
-<div class="events-intro">
-<h2>Join Us In Our Celebrations</h2>
-<p>Every celebration has its own colour, music and beautiful memories.</p>
-</div>
-
-
-<div class="event-grid">
+<h2 class="sectionTitle">
+  Our Wedding Celebrations
+</h2>
 
 
 <!-- HALDI -->
 
-<div class="event-card haldi">
+<div class="eventCard haldiCard">
 
-<div class="haldi-art">
+  <img
+    class="eventImage"
+    src="haldi_2_weding.png"
+    alt="Haldi Celebration">
 
-<div class="sun"></div>
+  <div class="eventContent">
 
-<div class="haldi-person groom-art"></div>
-<div class="haldi-person bride-art"></div>
+    <h2 class="eventName haldiName">
+      🌼 Haldi Ceremony 🌼
+    </h2>
 
-<div class="flowers">
-🌼 🌻 🌼 🌻 🌼
+    <p class="eventTag">
+      A celebration painted in shades of sunshine,
+      laughter and love.
+    </p>
+
+    <div class="details">
+
+      <div class="detail">
+        <strong>📅 Date</strong>
+        To Be Announced
+      </div>
+
+      <div class="detail">
+        <strong>⏰ Time</strong>
+        To Be Announced
+      </div>
+
+      <div class="detail">
+        <strong>📍 Venue</strong>
+        To Be Announced
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
-
-</div>
-
-<div class="event-icon">🌼</div>
-
-<h3>HALDI</h3>
-
-<p>
-A day filled with sunshine, laughter,
-flowers and the beautiful colours of love.
-</p>
-
-<div class="event-details">
-
-<div>📅 DATE: YOUR HALDI DATE</div>
-<div>🕒 TIME: YOUR HALDI TIME</div>
-<div>📍 LOCATION: YOUR HALDI LOCATION</div>
-
-</div>
-
-</div>
-
 
 
 <!-- MEHENDI -->
 
-<div class="event-card mehendi">
+<div class="eventCard mehendiCard">
 
-<div class="mehendi-art">
+  <img
+    class="eventImage"
+    src="file_000000093cc8211a2778527b020c91.png"
+    alt="Mehendi Celebration">
 
-<div class="mehendi-hand"></div>
+  <div class="eventContent">
 
-<div class="mehendi-pattern">
-❀ ✦ ❀
+    <h2 class="eventName mehendiName">
+      🌿 Mehendi Ceremony 🌿
+    </h2>
+
+    <p class="eventTag">
+      Beautiful hands, beautiful designs
+      and memories waiting to bloom.
+    </p>
+
+    <div class="details">
+
+      <div class="detail">
+        <strong>📅 Date</strong>
+        To Be Announced
+      </div>
+
+      <div class="detail">
+        <strong>⏰ Time</strong>
+        To Be Announced
+      </div>
+
+      <div class="detail">
+        <strong>📍 Venue</strong>
+        To Be Announced
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
-
-</div>
-
-<div class="event-icon">🖐️</div>
-
-<h3>MEHENDI</h3>
-
-<p>
-Let the beautiful colours of Mehendi
-tell the beginning of our forever story.
-</p>
-
-<div class="event-details">
-
-<div>📅 DATE: YOUR MEHENDI DATE</div>
-<div>🕒 TIME: YOUR MEHENDI TIME</div>
-<div>📍 LOCATION: YOUR MEHENDI LOCATION</div>
-
-</div>
-
-</div>
-
 
 
 <!-- SANGEET -->
 
-<div class="event-card sangeet">
+<div class="eventCard sangeetCard">
 
-<div class="sangeet-art">
+  <img
+    class="eventImage"
+    src="file_0000000ed8882118acabb93c93e0e4f.png"
+    alt="Sangeet Celebration">
 
-<div class="disco"></div>
+  <div class="eventContent">
 
-<div class="music-note note1">🎵</div>
-<div class="music-note note2">🎶</div>
-<div class="music-note note3">🎤</div>
+    <h2 class="eventName sangeetName">
+      🎶 Sangeet Night 🎶
+    </h2>
 
-</div>
+    <p class="eventTag">
+      Music in the air, love everywhere,
+      and a night made for dancing.
+    </p>
 
-<div class="event-icon">🎶</div>
+    <div class="details">
 
-<h3>SANGEET</h3>
+      <div class="detail">
+        <strong>📅 Date</strong>
+        To Be Announced
+      </div>
 
-<p>
-Lights. Music. Dance.
-A night where every heartbeat joins the celebration.
-</p>
+      <div class="detail">
+        <strong>⏰ Time</strong>
+        To Be Announced
+      </div>
 
-<div class="event-details">
+      <div class="detail">
+        <strong>📍 Venue</strong>
+        To Be Announced
+      </div>
 
-<div>📅 DATE: YOUR SANGEET DATE</div>
-<div>🕒 TIME: YOUR SANGEET TIME</div>
-<div>📍 LOCATION: YOUR SANGEET LOCATION</div>
+    </div>
 
-</div>
-
-</div>
-
-
-
-<!-- WEDDING -->
-
-<div class="event-card wedding">
-
-<div class="wedding-art">
-💍
-</div>
-
-<div class="event-icon">👰 🤵</div>
-
-<h3>WEDDING</h3>
-
-<p>
-Two souls. Two families.
-One beautiful promise for a lifetime.
-</p>
-
-<div class="event-details">
-
-<div>📅 DATE: YOUR WEDDING DATE</div>
-<div>🕒 TIME: YOUR WEDDING TIME</div>
-<div>📍 LOCATION: YOUR WEDDING LOCATION</div>
+  </div>
 
 </div>
 
-</div>
-
-
-
-<!-- RECEPTION -->
-
-<div class="event-card reception">
-
-<div class="reception-art">
-🥂
-</div>
-
-<div class="event-icon">✨</div>
-
-<h3>RECEPTION</h3>
-
-<p>
-An evening of elegance, happiness
-and celebrations with our loved ones.
-</p>
-
-<div class="event-details">
-
-<div>📅 DATE: YOUR RECEPTION DATE</div>
-<div>🕒 TIME: YOUR RECEPTION TIME</div>
-<div>📍 LOCATION: YOUR RECEPTION LOCATION</div>
-
-</div>
-
-</div>
-
-
-</div>
 
 </section>
 
-
-
-<!-- STORY / PHOTO GALLERY -->
-
-<section class="story">
-
-<h2>Our Beautiful Moments</h2>
-
-<div class="story-grid">
-
-<div class="story-card">
-<div class="photo-placeholder">❤️</div>
-<p>Our beautiful journey begins...</p>
-</div>
-
-<div class="story-card">
-<div class="photo-placeholder">📸</div>
-<p>A thousand moments, one beautiful story.</p>
-</div>
-
-<div class="story-card">
-<div class="photo-placeholder">💕</div>
-<p>Forever starts with us.</p>
-</div>
-
-<div class="story-card">
-<div class="photo-placeholder">✨</div>
-<p>The best is yet to come.</p>
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- VENUE -->
-
-<section class="venue">
-
-<div class="venue-box">
-
-<div class="venue-icon">📍</div>
-
-<h2>Wedding Venue</h2>
-
-<p>
-YOUR VENUE NAME<br>
-YOUR FULL VENUE ADDRESS<br>
-CITY, STATE
-</p>
-
-</div>
-
-</section>
-
-
-
-<!-- FOOTER -->
 
 <footer class="footer">
 
-<h2>We Can't Wait To Celebrate With You! ❤️</h2>
+  <h2>
+    We Can't Wait To Celebrate With You ❤️
+  </h2>
 
-<p>
-Your presence and blessings will make our special day
-even more memorable.
-</p>
+  <p>
+    Vikas & Khushi
+  </p>
 
-<p style="margin-top:30px;color:#d9ad4c;">
-With Love,<br>
-Vikas & Khushi
-</p>
+  <p>
+    With love and blessings from both families
+  </p>
 
 </footer>
 
 
+</div>
 
-<!-- COUNTDOWN SCRIPT -->
 
 <script>
 
-/* CHANGE THIS DATE TO ACTUAL WEDDING DATE */
+function openInvitation(){
 
-const weddingDate = new Date("2027-02-14T00:00:00").getTime();
+  document.querySelector(".leftGate")
+    .classList.add("open");
 
-
-setInterval(function(){
-
-const now = new Date().getTime();
-
-const distance = weddingDate - now;
-
-const days = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
-
-const hours = Math.max(
-0,
-Math.floor(
-(distance % (1000 * 60 * 60 * 24))
-/
-(1000 * 60 * 60)
-)
-);
-
-const minutes = Math.max(
-0,
-Math.floor(
-(distance % (1000 * 60 * 60))
-/
-(1000 * 60)
-)
-);
-
-const seconds = Math.max(
-0,
-Math.floor(
-(distance % (1000 * 60))
-/
-1000
-)
-);
+  document.querySelector(".rightGate")
+    .classList.add("open");
 
 
-document.getElementById("days").innerHTML = days;
-document.getElementById("hours").innerHTML = hours;
-document.getElementById("minutes").innerHTML = minutes;
-document.getElementById("seconds").innerHTML = seconds;
+  setTimeout(function(){
 
-},1000);
+    document.getElementById("gateScreen")
+      .style.display="none";
+
+    document.getElementById("invitation")
+      .classList.add("show");
+
+  },2200);
+
+}
 
 </script>
 
