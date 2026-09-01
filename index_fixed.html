@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vikas Weds Khushi</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:Georgia,"Times New Roman",serif;overflow-x:hidden;background:#3a0508;color:#fff4d5}
+body.gateActive{overflow:hidden}
+.flower{position:fixed;top:-100px;z-index:999;pointer-events:none;animation:fall linear infinite;opacity:.9}
+.f1{left:5%;font-size:25px;animation-duration:13s}.f2{left:18%;font-size:20px;animation-duration:17s}.f3{left:34%;font-size:28px;animation-duration:15s}.f4{left:55%;font-size:23px;animation-duration:18s}.f5{left:73%;font-size:27px;animation-duration:14s}.f6{left:91%;font-size:22px;animation-duration:16s}
+@keyframes fall{from{transform:translateY(-120px) rotate(0)}to{transform:translateY(115vh) rotate(360deg)}}
+#gateScreen{position:fixed;inset:0;z-index:10000;overflow:hidden;background:radial-gradient(circle at center,#9c241b,#250205 72%)}
+.gate{position:absolute;top:0;width:50.5%;height:100%;z-index:2;background:radial-gradient(circle at 50% 35%,rgba(255,200,70,.2),transparent 28%),linear-gradient(90deg,#3a0306,#791014 25%,#b5481c 50%,#791014 75%,#3a0306);border:5px solid #e6b652;box-shadow:inset 0 0 70px rgba(0,0,0,.65),0 0 25px rgba(255,190,70,.25);transition:transform 2.5s cubic-bezier(.77,0,.18,1)}
+.leftGate{left:0}.rightGate{right:0}.leftGate.open{transform:translateX(-110%)}.rightGate.open{transform:translateX(110%)}
+.gate:before{content:"";position:absolute;inset:22px;border:3px solid rgba(255,224,140,.8);box-shadow:inset 0 0 30px rgba(255,190,70,.2)}
+.leftGate:after,.rightGate:after{content:"❀";position:absolute;top:42%;width:100%;text-align:center;font-size:clamp(50px,10vw,90px);color:#ffe09a;text-shadow:0 0 25px #c67a20}
+.gateTop{position:absolute;top:14%;left:0;width:100%;z-index:5;text-align:center;color:#ffe5a0;font-size:clamp(14px,4vw,25px);letter-spacing:5px;text-shadow:0 0 20px rgba(255,180,50,.8)}
+.gateButton{position:absolute;left:50%;top:78%;transform:translate(-50%,-50%);z-index:10;width:min(420px,80vw);padding:19px 15px;border:none;border-radius:50px;cursor:pointer;font-family:Georgia,serif;font-size:clamp(18px,5vw,28px);font-weight:bold;color:#67150d;background:linear-gradient(135deg,#fff0bc,#d99a3b,#fff0bc);box-shadow:0 15px 40px rgba(0,0,0,.55),0 0 30px rgba(255,200,80,.45)}
+.royal{position:relative;min-height:100vh;overflow:hidden;padding:135px 18px 90px;text-align:center;background:radial-gradient(circle at 50% 18%,rgba(220,105,35,.35),transparent 28%),radial-gradient(circle at 10% 70%,rgba(255,185,70,.12),transparent 25%),radial-gradient(circle at 90% 65%,rgba(255,130,40,.13),transparent 25%),linear-gradient(135deg,#250103,#61070c,#950f14,#4d0508,#210102)}
+.royal:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.3;background-image:radial-gradient(circle,rgba(255,220,130,.7) 1px,transparent 1px);background-size:32px 32px}
+.hangingDecor{position:absolute;top:0;left:0;width:100%;height:150px;display:flex;justify-content:space-around;pointer-events:none}
+.hangingDecor span{position:relative;width:3px;height:95px;background:linear-gradient(#ffd76e,#81410d);box-shadow:0 0 10px #ffd76e}
+.hangingDecor span:after{content:"✦";position:absolute;bottom:-35px;left:50%;transform:translateX(-50%);color:#f7c85e;font-size:40px;text-shadow:0 0 15px rgba(255,190,60,.8)}
+.sideDecor{position:absolute;top:190px;bottom:0;width:55px;font-size:40px;color:#e8b652;opacity:.7}.leftDecor{left:8px}.rightDecor{right:8px}.sideDecor span{display:block;margin:60px 0}
+.content{position:relative;z-index:2;max-width:850px;margin:auto}
+.blessing{opacity:0;color:#f4ce78;font-size:13px;letter-spacing:6px;margin-bottom:25px}
+.ganeshFrame{width:min(440px,90vw);height:min(560px,115vw);margin:auto;padding:12px;border-radius:48%;overflow:hidden;background:radial-gradient(circle at center,#fff0bd 0%,#d79b45 48%,#7d2416 100%);box-shadow:0 0 0 8px rgba(255,220,125,.14),0 20px 65px rgba(0,0,0,.6),0 0 55px rgba(255,180,55,.35)}
+.ganeshFrame img{width:100%;height:100%;display:block;object-fit:contain;object-position:center center;border-radius:45%;background:#f6d49b}
+.mantra{opacity:0;max-width:760px;margin:35px auto 20px;padding:15px;color:#ffe4a4;font-size:clamp(20px,5vw,34px);font-weight:bold;line-height:1.6;text-shadow:0 3px 12px rgba(0,0,0,.8)}
+.names{opacity:0;margin-top:45px}.together{font-size:12px;letter-spacing:6px;color:#e8bd65;margin-bottom:15px}.names h1{color:#ffe9ae;font-size:clamp(48px,13vw,100px);text-shadow:0 0 30px rgba(255,185,60,.6)}.weds{display:block;margin:10px 0;color:#e0a447;font-size:clamp(21px,6vw,42px)}
+.dateReveal{overflow:hidden;max-width:650px;margin:45px auto 0;padding:30px 15px;border-top:1px solid rgba(255,220,140,.5);border-bottom:1px solid rgba(255,220,140,.5);background:linear-gradient(90deg,transparent,rgba(255,215,120,.12),transparent)}
+.saveDate,.dateText,.dateNote,.countdownTitle,.countdown{opacity:0}.saveDate{color:#e9bd64;font-size:12px;letter-spacing:6px;margin-bottom:15px}.dateText{color:#fff0bd;font-size:clamp(28px,9vw,60px);font-weight:bold;text-shadow:0 0 25px rgba(255,185,55,.6)}.dateNote{margin-top:15px;color:#e7c979}
+.countdownTitle{margin:45px 0 22px;font-size:clamp(20px,5vw,34px);letter-spacing:4px;color:#f1c96f}.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:620px;margin:0 auto}.timeBox{padding:18px 8px;border:1px solid rgba(255,220,140,.35);border-radius:18px;background:rgba(30,0,0,.25);box-shadow:inset 0 0 22px rgba(255,190,70,.08)}.timeBox b{display:block;font-size:clamp(26px,8vw,52px);color:#ffe8aa}.timeBox small{display:block;margin-top:8px;letter-spacing:2px;color:#e6bd69}
+@keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}@keyframes nameReveal{from{opacity:0;transform:translateY(80px) scale(.72);filter:blur(18px)}60%{opacity:1;transform:translateY(-8px) scale(1.04);filter:blur(0)}to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}@keyframes dateCinematic{0%{opacity:0;transform:translateY(90px) scale(.65);filter:blur(25px);letter-spacing:22px}60%{opacity:1;transform:translateY(-8px) scale(1.05);filter:blur(0);letter-spacing:5px;text-shadow:0 0 45px rgba(255,195,70,1)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0);letter-spacing:2px;text-shadow:0 0 25px rgba(255,195,70,.65)}}
+body.cinematicStart .blessing{animation:fadeUp 1.4s ease forwards;animation-delay:.8s}body.cinematicStart .mantra{animation:fadeUp 1.6s ease forwards;animation-delay:1.7s}body.cinematicStart .names{animation:nameReveal 2.8s cubic-bezier(.16,1,.3,1) forwards;animation-delay:3s}body.cinematicStart .saveDate{animation:fadeUp 1.2s ease forwards;animation-delay:5.8s}body.cinematicStart .dateText{animation:dateCinematic 3s cubic-bezier(.16,1,.3,1) forwards;animation-delay:6.8s}body.cinematicStart .dateNote{animation:fadeUp 1.2s ease forwards;animation-delay:9.8s}body.cinematicStart .countdownTitle{animation:fadeUp 1.2s ease forwards;animation-delay:10.8s}body.cinematicStart .countdown{animation:fadeUp 1.2s ease forwards;animation-delay:11.4s}
+@media(max-width:500px){.royal{padding:125px 12px 70px}.sideDecor{font-size:30px;width:38px}.ganeshFrame{height:min(520px,122vw)}.countdown{gap:6px}.timeBox{padding:14px 4px}.gateTop{top:12%}}
+</style>
+</head>
+<body class="gateActive">
+<div id="gateScreen"><div class="gate leftGate"></div><div class="gate rightGate"></div><div class="gateTop">VIKAS ❤ KHUSHI</div><button class="gateButton" id="openGate">✦ OPEN THE INVITATION ✦</button></div>
+<div class="flower f1">🌸</div><div class="flower f2">🌺</div><div class="flower f3">🌼</div><div class="flower f4">🌸</div><div class="flower f5">🌺</div><div class="flower f6">🌼</div>
+<section class="royal"><div class="hangingDecor"><span></span><span></span><span></span><span></span><span></span></div><div class="sideDecor leftDecor"><span>❀</span><span>✦</span><span>❀</span></div><div class="sideDecor rightDecor"><span>❀</span><span>✦</span><span>❀</span></div>
+<div class="content">
+<div class="blessing">DIVINE BLESSINGS</div>
+<div class="ganeshFrame"><img src="hali_2_wedding.png" alt="Lord Ganesha"></div>
+<div class="mantra">ॐ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</div>
+<div class="names"><div class="together">TOGETHER WITH THEIR FAMILIES</div><h1>Vikas<span class="weds">WEDS</span>Khushi</h1></div>
+<div class="dateReveal"><div class="saveDate">SAVE THE DATE</div><div class="dateText" id="dateText">Loading...</div><div class="dateNote">A beautiful celebration of love begins soon</div></div>
+<div class="countdownTitle">COUNTDOWN TO THE CELEBRATION</div>
+<div class="countdown"><div class="timeBox"><b id="days">00</b><small>DAYS</small></div><div class="timeBox"><b id="hours">00</b><small>HOURS</small></div><div class="timeBox"><b id="mins">00</b><small>MINUTES</small></div><div class="timeBox"><b id="secs">00</b><small>SECONDS</small></div></div>
+</div></section>
+<script>
+const target=new Date();target.setDate(target.getDate()+137);target.setHours(18,0,0,0);
+document.getElementById("dateText").textContent=target.toLocaleDateString("en-IN",{day:"2-digit",month:"long",year:"numeric"});
+function tick(){let diff=Math.max(0,target-new Date()),d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);document.getElementById("days").textContent=String(d).padStart(2,"0");document.getElementById("hours").textContent=String(h).padStart(2,"0");document.getElementById("mins").textContent=String(m).padStart(2,"0");document.getElementById("secs").textContent=String(s).padStart(2,"0")}
+tick();setInterval(tick,1000);
+document.getElementById("openGate").addEventListener("click",()=>{document.querySelector(".leftGate").classList.add("open");document.querySelector(".rightGate").classList.add("open");document.body.classList.remove("gateActive");setTimeout(()=>document.getElementById("gateScreen").style.display="none",2600);setTimeout(()=>document.body.classList.add("cinematicStart"),300)});
+</script>
+</body></html>
