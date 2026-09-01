@@ -1,1014 +1,687 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Vikas ❤️ Khushi | Wedding Invitation</title>
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 
-html{scroll-behavior:smooth}
+/* =====================================================
+   FINAL GANESH + CINEMATIC REVEAL FIX
+===================================================== */
 
-body{
-  font-family:Georgia,"Times New Roman",serif;
-  overflow-x:hidden;
-  background:#3a0508;
-  color:#fff4d5;
-}
-
-/* ================= FALLING FLOWERS ================= */
-
-.falling{
-  position:fixed;
-  top:-80px;
-  z-index:50;
-  pointer-events:none;
-  animation:fall linear infinite;
-}
-
-.f1{left:5%;font-size:26px;animation-duration:12s}
-.f2{left:20%;font-size:21px;animation-duration:17s}
-.f3{left:38%;font-size:28px;animation-duration:14s}
-.f4{left:58%;font-size:22px;animation-duration:18s}
-.f5{left:77%;font-size:27px;animation-duration:13s}
-.f6{left:92%;font-size:22px;animation-duration:16s}
-
-@keyframes fall{
-  from{transform:translateY(-100px) rotate(0)}
-  to{transform:translateY(110vh) rotate(360deg)}
-}
-
-/* ================= CINEMATIC GATE ================= */
-
-#gateScreen{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at center,#9c231b,#250205 70%);
-}
-
-.gate{
-  position:absolute;
-  top:0;
-  width:50.2%;
-  height:100%;
-  transition:transform 2.4s cubic-bezier(.77,0,.18,1);
-  background:
-    linear-gradient(90deg,
-    #430609,
-    #81171a 30%,
-    #b13a1d 50%,
-    #7b1215 75%,
-    #3c0508);
-  border:6px solid #e4b452;
-  box-shadow:
-    inset 0 0 70px rgba(0,0,0,.7),
-    0 0 25px rgba(255,190,70,.3);
-}
-
-.leftGate{left:0}
-.rightGate{right:0}
-
-.gate.open.leftGate{transform:translateX(-110%)}
-.gate.open.rightGate{transform:translateX(110%)}
-
-.gate:before{
-  content:"";
-  position:absolute;
-  inset:28px;
-  border:3px solid rgba(255,222,130,.75);
-  box-shadow:inset 0 0 30px rgba(255,200,90,.15);
-}
-
-.gate:after{
-  content:"❀  ✦  ❀";
-  position:absolute;
-  top:42%;
-  width:100%;
-  text-align:center;
-  font-size:clamp(28px,7vw,60px);
-  color:#ffe3a0;
-  text-shadow:0 0 20px #d98d2e;
-}
-
-.gateTop{
-  position:absolute;
-  top:13%;
-  width:100%;
-  z-index:3;
-  text-align:center;
-  color:#ffe6a5;
-  letter-spacing:6px;
-  font-size:clamp(14px,4vw,24px);
-  text-shadow:0 0 18px #c46b20;
-}
-
-.gateButton{
-  position:absolute;
-  z-index:10;
-  left:50%;
-  top:80%;
-  transform:translate(-50%,-50%);
-  width:min(420px,78vw);
-  padding:20px;
-  border:none;
-  border-radius:60px;
-  cursor:pointer;
-  font-family:Georgia,serif;
-  font-weight:bold;
-  font-size:clamp(18px,5vw,28px);
-  color:#64160e;
-  background:linear-gradient(135deg,#fff1c2,#dca044,#fff1c2);
-  box-shadow:0 12px 35px rgba(0,0,0,.5),0 0 30px rgba(255,205,90,.45);
-}
-
-/* ================= MAIN ROYAL SECTION ================= */
-
-.royal{
-  position:relative;
-  min-height:100vh;
-  padding:100px 18px 80px;
-  overflow:hidden;
-  text-align:center;
-  background:
-    radial-gradient(circle at 50% 20%,rgba(209,88,43,.35),transparent 28%),
-    radial-gradient(circle at 10% 80%,rgba(255,180,70,.12),transparent 22%),
-    linear-gradient(135deg,#280205,#740d12,#3b0407);
-}
-
-.royal:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.35;
-  background-image:
-    radial-gradient(circle,rgba(255,220,130,.6) 1px,transparent 1px);
-  background-size:32px 32px;
-}
-
-.topDecor{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:150px;
-  display:flex;
-  justify-content:space-around;
-  pointer-events:none;
-}
-
-.topDecor span{
-  width:3px;
-  height:95px;
-  background:linear-gradient(#ffd36b,#8f4b10);
-  box-shadow:0 0 10px #ffd36b;
-  position:relative;
-}
-
-.topDecor span:after{
-  content:"✦";
-  position:absolute;
-  bottom:-30px;
-  left:50%;
-  transform:translateX(-50%);
-  color:#ffd775;
-  font-size:34px;
-}
-
-.side{
-  position:absolute;
-  top:160px;
-  bottom:0;
-  width:55px;
-  color:#e8b54e;
-  font-size:45px;
-  opacity:.75;
-}
-
-.side.left{left:8px}
-.side.right{right:8px}
-
-.side span{
-  display:block;
-  margin:60px 0;
-}
-
-.content{
-  position:relative;
-  z-index:2;
-  max-width:850px;
-  margin:auto;
-}
-
-.blessing{
-  letter-spacing:6px;
-  color:#f6ce75;
-  font-size:14px;
-  margin-bottom:20px;
-}
-
-/* ================= GANESH ================= */
-
+/* GANESH IMAGE - FULL IMAGE, FACE WILL NOT BE CUT */
 .ganeshFrame{
-  width:min(390px,82vw);
-  aspect-ratio:1;
-  margin:auto;
-  padding:12px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#fff2b6,#b76b1c,#fff2b6,#7b3c12);
+  width:min(430px,88vw) !important;
+  aspect-ratio:4 / 5 !important;
+
+  padding:14px !important;
+
+  border-radius:48% 48% 45% 45% / 38% 38% 55% 55% !important;
+
+  overflow:hidden !important;
+
+  background:
+    radial-gradient(circle at 50% 35%,
+      rgba(255,241,187,.95),
+      rgba(181,98,27,.7) 55%,
+      rgba(85,15,12,.9)
+    ) !important;
+
   box-shadow:
-    0 0 0 8px rgba(255,215,120,.14),
-    0 20px 60px rgba(0,0,0,.6),
-    0 0 55px rgba(255,170,50,.35);
-  animation:ganeshFloat 3s ease-in-out infinite alternate;
+    0 0 0 8px rgba(255,218,120,.16),
+    0 0 40px rgba(255,183,57,.5),
+    0 25px 70px rgba(0,0,0,.6) !important;
 }
 
-@keyframes ganeshFloat{
-  from{transform:translateY(0)}
-  to{transform:translateY(-8px)}
-}
-
+/* IMPORTANT - FULL GANESH IMAGE */
 .ganeshFrame img{
+  width:100% !important;
+  height:100% !important;
+
+  object-fit:contain !important;
+  object-position:center center !important;
+
+  border-radius:42% 42% 48% 48% / 35% 35% 55% 55% !important;
+
+  background:
+    radial-gradient(circle,
+      #f7ddb0,
+      #c46b2e
+    ) !important;
+}
+
+
+/* =====================================================
+   BETTER RED ROYAL BACKGROUND
+===================================================== */
+
+.royal-section{
+  background:
+    radial-gradient(circle at 50% 25%,
+      rgba(214,101,35,.35),
+      transparent 25%),
+
+    radial-gradient(circle at 15% 50%,
+      rgba(255,180,70,.15),
+      transparent 22%),
+
+    radial-gradient(circle at 85% 60%,
+      rgba(255,120,40,.12),
+      transparent 24%),
+
+    linear-gradient(
+      135deg,
+      #270103,
+      #5d080c 35%,
+      #920f14 50%,
+      #500609 72%,
+      #210103
+    ) !important;
+}
+
+
+/* EXTRA ROYAL DECORATIONS */
+.royal-section:after{
+  content:"✦  ❀  ✦  ❀  ✦";
+
+  position:absolute;
+
+  top:185px;
+  left:50%;
+
+  transform:translateX(-50%);
+
   width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:50%;
-  display:block;
+
+  text-align:center;
+
+  font-size:clamp(20px,5vw,38px);
+
+  letter-spacing:clamp(10px,5vw,35px);
+
+  color:rgba(255,208,105,.45);
+
+  text-shadow:
+    0 0 15px rgba(255,176,50,.7);
+
+  pointer-events:none;
+
+  z-index:2;
 }
 
-.mantra{
-  max-width:760px;
-  margin:38px auto 25px;
-  padding:18px;
-  font-size:clamp(21px,5vw,36px);
-  line-height:1.65;
-  font-weight:bold;
-  color:#ffe3a2;
-  text-shadow:0 3px 12px rgba(0,0,0,.8);
+
+/* =====================================================
+   NAME CINEMATIC REVEAL
+===================================================== */
+
+/* STOP OLD AUTOMATIC ANIMATION */
+.revealSmall,
+.revealNames{
+  opacity:0 !important;
 }
 
-/* ================= CINEMATIC NAME ================= */
 
-.names{
-  margin-top:45px;
-  opacity:0;
-  transform:translateY(35px);
-  animation:nameReveal 2s ease forwards;
-  animation-delay:.8s;
+/* SMALL TEXT FIRST */
+body.cinematicStart .revealSmall{
+  animation:
+    smallReveal 1.5s ease forwards !important;
+
+  animation-delay:2.4s !important;
 }
 
-@keyframes nameReveal{
-  to{opacity:1;transform:translateY(0)}
+
+/* VIKAS WEDS KHUSHI */
+body.cinematicStart .revealNames{
+  animation:
+    cinematicNames 2.8s cubic-bezier(.16,1,.3,1) forwards !important;
+
+  animation-delay:3.1s !important;
 }
 
-.together{
-  font-size:13px;
-  letter-spacing:6px;
-  color:#e6bc65;
-  margin-bottom:16px;
+
+@keyframes smallReveal{
+
+  0%{
+    opacity:0;
+    letter-spacing:16px;
+    transform:translateY(20px);
+  }
+
+  100%{
+    opacity:1;
+    letter-spacing:7px;
+    transform:translateY(0);
+  }
+
 }
 
-.names h1{
-  font-size:clamp(50px,13vw,100px);
-  color:#ffe8aa;
-  text-shadow:0 0 28px rgba(255,184,62,.5);
+
+@keyframes cinematicNames{
+
+  0%{
+    opacity:0;
+    transform:
+      scale(.75)
+      translateY(70px);
+
+    filter:
+      blur(18px);
+
+    text-shadow:
+      0 0 0 transparent;
+  }
+
+  55%{
+    opacity:1;
+
+    filter:
+      blur(0);
+
+    text-shadow:
+      0 0 45px rgba(255,181,56,.95);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      scale(1)
+      translateY(0);
+
+    filter:
+      blur(0);
+
+    text-shadow:
+      0 0 25px rgba(255,181,56,.55);
+  }
+
 }
 
-.weds{
-  display:block;
-  font-size:clamp(22px,6vw,43px);
-  margin:10px;
-  color:#dca447;
-}
 
-/* ================= DATE ================= */
+/* =====================================================
+   CINEMATIC DATE REVEAL
+===================================================== */
 
 .dateReveal{
-  margin:45px auto 0;
-  padding:32px 15px;
-  max-width:650px;
-  border-top:1px solid rgba(255,220,140,.5);
-  border-bottom:1px solid rgba(255,220,140,.5);
-  background:linear-gradient(90deg,transparent,rgba(255,215,120,.12),transparent);
+  overflow:hidden !important;
 }
 
-.saveDate{
-  font-size:13px;
-  letter-spacing:6px;
-  color:#e8bd63;
-  margin-bottom:14px;
+
+/* OLD DATE HIDDEN UNTIL REVEAL */
+.dateReveal .saveDate,
+.dateReveal .dateText,
+.dateReveal .dateNote{
+  opacity:0;
 }
 
-.dateText{
-  font-size:clamp(30px,9vw,62px);
-  font-weight:bold;
-  color:#fff0bd;
-  text-shadow:0 0 25px rgba(255,185,55,.65);
-  animation:dateGlow 2s infinite alternate;
+
+body.cinematicStart .dateReveal .saveDate{
+  animation:
+    fadeUp 1s ease forwards;
+
+  animation-delay:5.8s;
 }
 
-@keyframes dateGlow{
-  from{opacity:.8}
-  to{opacity:1;text-shadow:0 0 40px rgba(255,190,60,.9)}
+
+body.cinematicStart .dateReveal .dateText{
+  animation:
+    dateCinematicReveal 2.5s cubic-bezier(.16,1,.3,1) forwards;
+
+  animation-delay:6.4s;
 }
 
-.dateNote{
-  margin-top:14px;
-  color:#e9c97e;
+
+body.cinematicStart .dateReveal .dateNote{
+  animation:
+    fadeUp 1.2s ease forwards;
+
+  animation-delay:8.2s;
 }
 
-/* ================= COUNTDOWN ================= */
 
-.countTitle{
-  margin:45px 0 22px;
-  font-size:clamp(21px,5vw,32px);
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
+
+@keyframes dateCinematicReveal{
+
+  0%{
+    opacity:0;
+
+    transform:
+      translateY(80px)
+      scale(.7);
+
+    filter:
+      blur(20px);
+
+    letter-spacing:25px;
+  }
+
+  60%{
+    opacity:1;
+
+    transform:
+      translateY(-5px)
+      scale(1.04);
+
+    filter:
+      blur(0);
+
+    letter-spacing:5px;
+
+    text-shadow:
+      0 0 45px rgba(255,194,70,1);
+  }
+
+  100%{
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+    filter:
+      blur(0);
+
+    letter-spacing:2px;
+
+    text-shadow:
+      0 0 25px rgba(255,194,70,.6);
+  }
+
+}
+
+
+/* =====================================================
+   COUNTDOWN - HIDDEN UNTIL CINEMATIC INTRO FINISHES
+===================================================== */
+
+.countdownTitle,
 .countdown{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:10px;
+  opacity:0;
+  transform:translateY(40px);
 }
+
+
+body.cinematicStart .countdownTitle{
+  animation:
+    countdownReveal 1.2s ease forwards;
+
+  animation-delay:9.5s;
+}
+
+
+body.cinematicStart .countdown{
+  animation:
+    countdownReveal 1.5s ease forwards;
+
+  animation-delay:10.2s;
+}
+
+
+@keyframes countdownReveal{
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
 
 .countBox{
-  padding:20px 5px;
-  border-radius:18px;
-  border:1px solid rgba(255,215,130,.4);
-  background:rgba(255,225,150,.1);
-  backdrop-filter:blur(8px);
-}
-
-.countNumber{
-  font-size:clamp(25px,7vw,50px);
-  color:#ffe6a2;
-  font-weight:bold;
-}
-
-.countLabel{
-  font-size:10px;
-  letter-spacing:2px;
-  color:#e6be68;
-  margin-top:7px;
-}
-
-/* ================= EVENT SECTIONS ================= */
-
-.event{
   position:relative;
-  padding:80px 15px;
+
   overflow:hidden;
 }
 
-.haldi{
-  background:
-    radial-gradient(circle at top,#ffe899,transparent 30%),
-    linear-gradient(135deg,#7a4005,#d99a18,#6b3104);
-}
 
-.mehendi{
-  background:
-    radial-gradient(circle at top,#b8e89e,transparent 28%),
-    linear-gradient(135deg,#12391e,#4b7432,#133b20);
-}
+.countBox:before{
+  content:"";
 
-.sangeet{
-  background:
-    radial-gradient(circle at top,#b34ec1,transparent 28%),
-    linear-gradient(135deg,#19042d,#57115d,#1a032c);
-}
-
-.eventTop{
-  text-align:center;
-  font-size:clamp(25px,7vw,42px);
-  margin-bottom:25px;
-  filter:drop-shadow(0 0 10px rgba(255,220,100,.6));
-}
-
-.eventCard{
-  max-width:760px;
-  margin:auto;
-  overflow:hidden;
-  border-radius:32px;
-  background:#fff8e2;
-  color:#4a2d1d;
-  border:3px solid rgba(255,225,140,.85);
-  box-shadow:0 25px 60px rgba(0,0,0,.45);
-}
-
-.imageWrap{
-  padding:11px;
-  background:linear-gradient(135deg,#fff2b4,#b9711d,#fff2b4);
-}
-
-.imageWrap img{
-  display:block;
-  width:100%;
-  max-height:560px;
-  object-fit:cover;
-  border-radius:23px;
-}
-
-.eventBody{
-  padding:32px 20px 40px;
-  text-align:center;
-}
-
-.eventSub{
-  font-size:12px;
-  letter-spacing:5px;
-  color:#9a6a27;
-  margin-bottom:12px;
-}
-
-.eventTitle{
-  font-size:clamp(48px,12vw,78px);
-  color:#7a3415;
-  margin-bottom:18px;
-}
-
-.eventDescription{
-  font-size:clamp(18px,5vw,26px);
-  line-height:1.55;
-  color:#583b2b;
-}
-
-.details{
-  display:grid;
-  gap:15px;
-  margin-top:30px;
-}
-
-.detail{
-  padding:18px;
-  border-radius:17px;
-  background:linear-gradient(135deg,#fff6d2,#efd48c);
-  border-left:6px solid #a45b1c;
-  box-shadow:0 8px 18px rgba(0,0,0,.12);
-}
-
-.detail b{
-  display:block;
-  color:#783513;
-  margin-bottom:5px;
-  letter-spacing:2px;
-}
-
-/* EXTRA EVENT DECOR */
-
-.extra{
   position:absolute;
-  inset:0;
-  pointer-events:none;
-  font-size:42px;
-  opacity:.65;
+
+  top:0;
+  left:-120%;
+
+  width:70%;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.25),
+      transparent
+    );
+
+  transform:skewX(-25deg);
+
+  animation:
+    shineBox 4s infinite;
 }
 
-.extra span{
-  position:absolute;
+
+@keyframes shineBox{
+
+  0%{
+    left:-120%;
+  }
+
+  100%{
+    left:160%;
+  }
+
 }
 
-.extra span:nth-child(1){left:5%;top:20%}
-.extra span:nth-child(2){right:5%;top:45%}
-.extra span:nth-child(3){left:7%;bottom:10%}
-.extra span:nth-child(4){right:7%;bottom:15%}
 
-/* MUSIC */
+/* =====================================================
+   GATE MORE BEAUTIFUL
+===================================================== */
 
-.musicButton{
-  position:fixed;
-  right:20px;
-  bottom:25px;
-  z-index:100;
-  width:65px;
-  height:65px;
-  border:none;
-  border-radius:50%;
-  cursor:pointer;
-  font-size:28px;
-  background:linear-gradient(135deg,#a94016,#58100b);
-  color:#ffe5a0;
-  box-shadow:0 10px 25px rgba(0,0,0,.4);
+.gate{
+  background:
+
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(255,193,75,.22),
+      transparent 28%
+    ),
+
+    linear-gradient(
+      90deg,
+      #3b0305,
+      #7d0c10 22%,
+      #b04418 48%,
+      #7d0c10 75%,
+      #3b0305
+    ) !important;
 }
 
-/* FOOTER */
 
-.footer{
-  text-align:center;
-  padding:70px 20px;
-  background:#240205;
-  color:#f5d78e;
+.gate:before{
+  inset:28px !important;
+
+  border:3px solid #f5d27b !important;
+
+  box-shadow:
+    inset 0 0 35px rgba(255,190,70,.25),
+    0 0 20px rgba(255,200,90,.12) !important;
 }
 
-.footer h2{
-  font-size:clamp(35px,9vw,65px);
-  margin-bottom:18px;
+
+.gate:after{
+  content:"✦   ❀   ✦" !important;
+
+  top:40% !important;
+  bottom:auto !important;
+
+  font-size:clamp(30px,7vw,52px) !important;
 }
 
-.footer p{
-  letter-spacing:3px;
+
+/* NO NAMES ON GATE - ONLY CELEBRATION TEXT */
+.gateHint{
+  top:24% !important;
+
+  font-size:clamp(14px,4vw,25px) !important;
 }
+
+
+/* =====================================================
+   MOBILE FIX
+===================================================== */
 
 @media(max-width:600px){
 
-  .side{width:30px;font-size:28px}
-  .topDecor span{height:70px}
-  .topDecor{height:110px}
-
-  .gate{
-    border-width:4px;
+  .ganeshContent{
+    padding-top:145px !important;
   }
 
-  .gate:before{
-    inset:15px;
-    border-width:2px;
+  .ganeshFrame{
+    width:min(400px,90vw) !important;
+  }
+
+  .mantra{
+    font-size:clamp(20px,5.5vw,30px) !important;
+    margin-top:32px !important;
+  }
+
+  .revealNames{
+    font-size:clamp(42px,13vw,65px) !important;
   }
 
   .countdown{
-    gap:7px;
+    gap:7px !important;
   }
 
   .countBox{
-    padding:15px 3px;
+    padding:17px 4px !important;
   }
+
+  .countLabel{
+    font-size:9px !important;
+    letter-spacing:1px !important;
+  }
+
 }
+
 </style>
-</head>
 
-<body>
-
-<!-- FALLING FLOWERS -->
-
-<div class="falling f1">🌸</div>
-<div class="falling f2">🌺</div>
-<div class="falling f3">🌼</div>
-<div class="falling f4">🌸</div>
-<div class="falling f5">🌺</div>
-<div class="falling f6">🌼</div>
-
-<!-- OPENING GATE -->
-
-<div id="gateScreen">
-
-  <div class="gate leftGate"></div>
-  <div class="gate rightGate"></div>
-
-  <div class="gateTop">
-    ✦ A BEAUTIFUL CELEBRATION BEGINS ✦
-  </div>
-
-  <button class="gateButton" id="enterButton">
-    ✦ Enter the Celebration ✦
-  </button>
-
-</div>
-
-<!-- MUSIC -->
-
-<audio id="bgMusic" loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<button class="musicButton" id="musicButton">🎵</button>
-
-<main>
-
-<!-- GANESH INTRO -->
-
-<section class="royal">
-
-  <div class="topDecor">
-    <span></span><span></span><span></span>
-    <span></span><span></span>
-  </div>
-
-  <div class="side left">
-    <span>❀</span>
-    <span>✦</span>
-    <span>❀</span>
-  </div>
-
-  <div class="side right">
-    <span>❀</span>
-    <span>✦</span>
-    <span>❀</span>
-  </div>
-
-  <div class="content">
-
-    <div class="blessing">DIVINE BLESSINGS</div>
-
-    <div class="ganeshFrame">
-      <img
-        src="file_00000000ed8882118acabb93c93e0e4f.png"
-        alt="Lord Ganesha">
-    </div>
-
-    <div class="mantra">
-      ॐ वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>
-      निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥
-    </div>
-
-    <div class="names">
-
-      <div class="together">
-        TOGETHER WITH THEIR FAMILIES
-      </div>
-
-      <h1>
-        Vikas
-        <span class="weds">WEDS</span>
-        Khushi
-      </h1>
-
-    </div>
-
-    <div class="dateReveal">
-
-      <div class="saveDate">✦ SAVE THE DATE ✦</div>
-
-      <div class="dateText">
-        Wedding Date Coming Soon
-      </div>
-
-      <div class="dateNote">
-        Two souls • One beautiful journey • Forever
-      </div>
-
-    </div>
-
-    <h2 class="countTitle">
-      ⏳ Counting Down To The Celebration ⏳
-    </h2>
-
-    <div class="countdown">
-
-      <div class="countBox">
-        <div class="countNumber" id="days">--</div>
-        <div class="countLabel">DAYS</div>
-      </div>
-
-      <div class="countBox">
-        <div class="countNumber" id="hours">--</div>
-        <div class="countLabel">HOURS</div>
-      </div>
-
-      <div class="countBox">
-        <div class="countNumber" id="minutes">--</div>
-        <div class="countLabel">MINUTES</div>
-      </div>
-
-      <div class="countBox">
-        <div class="countNumber" id="seconds">--</div>
-        <div class="countLabel">SECONDS</div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- HALDI -->
-
-<section class="event haldi">
-
-  <div class="extra">
-    <span>🌼</span>
-    <span>🌻</span>
-    <span>🌼</span>
-    <span>✨</span>
-  </div>
-
-  <div class="eventTop">✦ 🌼 ✦ 🌼 ✦</div>
-
-  <div class="eventCard">
-
-    <div class="imageWrap">
-      <img src="haldi_2_wedding.png" alt="Haldi">
-    </div>
-
-    <div class="eventBody">
-
-      <div class="eventSub">
-        YELLOW • JOY • CELEBRATION
-      </div>
-
-      <h2 class="eventTitle">Haldi</h2>
-
-      <p class="eventDescription">
-        A beautiful celebration filled with
-        laughter, colours, flowers and happiness.
-      </p>
-
-      <div class="details">
-
-        <div class="detail">
-          <b>📅 DATE</b>
-          To Be Announced
-        </div>
-
-        <div class="detail">
-          <b>🕒 TIME</b>
-          To Be Announced
-        </div>
-
-        <div class="detail">
-          <b>📍 VENUE</b>
-          To Be Announced
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- MEHENDI -->
-
-<section class="event mehendi">
-
-  <div class="extra">
-    <span>🌿</span>
-    <span>❀</span>
-    <span>🌿</span>
-    <span>✨</span>
-  </div>
-
-  <div class="eventTop">✦ 🌿 ✦ ❀ ✦ 🌿 ✦</div>
-
-  <div class="eventCard">
-
-    <div class="imageWrap">
-      <img
-        src="file_0000000093cc8211a27785279b020c91.png"
-        alt="Mehendi">
-    </div>
-
-    <div class="eventBody">
-
-      <div class="eventSub">
-        ART • TRADITION • COLOUR
-      </div>
-
-      <h2 class="eventTitle">Mehendi</h2>
-
-      <p class="eventDescription">
-        Beautiful hands, intricate mehendi,
-        colourful moments and unforgettable memories.
-      </p>
-
-      <div class="details">
-
-        <div class="detail">
-          <b>📅 DATE</b>
-          To Be Announced
-        </div>
-
-        <div class="detail">
-          <b>🕒 TIME</b>
-          To Be Announced
-        </div>
-
-        <div class="detail">
-          <b>📍 VENUE</b>
-          To Be Announced
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- SANGEET -->
-
-<section class="event sangeet">
-
-  <div class="extra">
-    <span>♫</span>
-    <span>♪</span>
-    <span>💃</span>
-    <span>🕺</span>
-  </div>
-
-  <div class="eventTop">✦ 🎶 ✦ 💃 🕺 ✦ 🎶 ✦</div>
-
-  <div class="eventCard">
-
-    <div class="imageWrap">
-      <img
-        src="file_0000000033988211a0a14414fabbc3a4.png"
-        alt="Sangeet">
-    </div>
-
-    <div class="eventBody">
-
-      <div class="eventSub">
-        MUSIC • DANCE • CELEBRATION
-      </div>
-
-      <h2 class="eventTitle">Sangeet</h2>
-
-      <p class="eventDescription">
-        Let the music play, let the hearts dance
-        and let the celebration become unforgettable.
-      </p>
-
-      <div class="details">
-
-        <div class="detail">
-          <b>📅 DATE</b>
-          To Be Announced
-        </div>
-
-        <div class="detail">
-          <b>🕒 TIME</b>
-          To Be Announced
-        </div>
-
-        <div class="detail">
-          <b>📍 VENUE</b>
-          To Be Announced
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section class="footer">
-
-  <h2>Vikas ❤️ Khushi</h2>
-
-  <p>✦ TWO HEARTS • ONE FOREVER ✦</p>
-
-</section>
-
-</main>
 
 <script>
 
-/* ================= GATE ================= */
+/* =====================================================
+   FINAL GATE OPENING
+===================================================== */
 
-const enterButton =
-document.getElementById("enterButton");
+function openGate(){
 
-const leftGate =
-document.querySelector(".leftGate");
+  const leftGate =
+    document.querySelector(".leftGate");
 
-const rightGate =
-document.querySelector(".rightGate");
+  const rightGate =
+    document.querySelector(".rightGate");
 
-const gateScreen =
-document.getElementById("gateScreen");
+  const gateScreen =
+    document.getElementById("gateScreen");
 
-enterButton.addEventListener("click", function(){
+  /* OPEN BOTH GATES */
 
-  leftGate.classList.add("open");
-  rightGate.classList.add("open");
+  if(leftGate){
+    leftGate.classList.add("open");
+  }
+
+  if(rightGate){
+    rightGate.classList.add("open");
+  }
+
+
+  /* START CINEMATIC WEBSITE REVEAL */
+
+  document.body.classList.add(
+    "cinematicStart"
+  );
+
+
+  /* TRY MUSIC AFTER USER CLICK */
+
+  const music =
+    document.getElementById("bgMusic");
+
+  if(music){
+
+    music.volume = 0.45;
+
+    music.play().catch(function(){
+      console.log("Music waiting for browser permission");
+    });
+
+  }
+
+
+  /* REMOVE GATE AFTER ANIMATION */
 
   setTimeout(function(){
 
-    gateScreen.style.display = "none";
+    if(gateScreen){
+      gateScreen.style.display =
+        "none";
+    }
 
-    document.body.style.overflowY = "auto";
+  },2300);
 
-    window.scrollTo({
-      top:0,
-      behavior:"smooth"
-    });
-
-  }, 2450);
-
-});
+}
 
 
-/* ================= MUSIC ================= */
+/* =====================================================
+   MAKE RANDOM COUNTDOWN
+   RANDOM VALUE FIRST, THEN IT COUNTS DOWN
+===================================================== */
 
-const music =
-document.getElementById("bgMusic");
+let totalSeconds =
 
-const musicButton =
-document.getElementById("musicButton");
+  (Math.floor(Math.random() * 80) + 20)
+  * 86400
 
-let isPlaying = false;
+  +
 
-musicButton.addEventListener("click", function(){
+  (Math.floor(Math.random() * 23) + 1)
+  * 3600
 
-  if(!isPlaying){
+  +
 
-    music.play().catch(function(){});
+  (Math.floor(Math.random() * 59) + 1)
+  * 60
 
-    musicButton.innerHTML = "🔊";
+  +
 
-    isPlaying = true;
-
-  }else{
-
-    music.pause();
-
-    musicButton.innerHTML = "🎵";
-
-    isPlaying = false;
-
-  }
-
-});
+  (Math.floor(Math.random() * 59) + 1);
 
 
-/* ================= COUNTDOWN ================= */
+/* FORMAT TWO DIGITS */
 
-/*
-Wedding date final hone par
-null ki jagah date daalna.
+function twoDigits(number){
 
-Example:
+  return String(number)
+    .padStart(2,"0");
 
-const weddingDate =
-new Date("2027-02-14T19:00:00").getTime();
+}
 
-*/
 
-const weddingDate = null;
+/* UPDATE COUNTDOWN */
 
 function updateCountdown(){
 
-  if(weddingDate === null){
+  let days =
+    Math.floor(
+      totalSeconds / 86400
+    );
 
-    document.getElementById("days").textContent = "--";
-    document.getElementById("hours").textContent = "--";
-    document.getElementById("minutes").textContent = "--";
-    document.getElementById("seconds").textContent = "--";
+  let remaining =
+    totalSeconds % 86400;
 
-    return;
+
+  let hours =
+    Math.floor(
+      remaining / 3600
+    );
+
+  remaining =
+    remaining % 3600;
+
+
+  let minutes =
+    Math.floor(
+      remaining / 60
+    );
+
+
+  let seconds =
+    remaining % 60;
+
+
+  const daysEl =
+    document.getElementById("days");
+
+  const hoursEl =
+    document.getElementById("hours");
+
+  const minutesEl =
+    document.getElementById("minutes");
+
+  const secondsEl =
+    document.getElementById("seconds");
+
+
+  if(daysEl){
+    daysEl.textContent =
+      twoDigits(days);
   }
 
-  const now = new Date().getTime();
-
-  const distance =
-  weddingDate - now;
-
-  if(distance <= 0){
-
-    document.getElementById("days").textContent = "0";
-    document.getElementById("hours").textContent = "0";
-    document.getElementById("minutes").textContent = "0";
-    document.getElementById("seconds").textContent = "0";
-
-    return;
+  if(hoursEl){
+    hoursEl.textContent =
+      twoDigits(hours);
   }
 
-  const days =
-  Math.floor(distance / (1000*60*60*24));
+  if(minutesEl){
+    minutesEl.textContent =
+      twoDigits(minutes);
+  }
 
-  const hours =
-  Math.floor(
-    (distance % (1000*60*60*24))
-    / (1000*60*60)
-  );
+  if(secondsEl){
+    secondsEl.textContent =
+      twoDigits(seconds);
+  }
 
-  const minutes =
-  Math.floor(
-    (distance % (1000*60*60))
-    / (1000*60)
-  );
 
-  const seconds =
-  Math.floor(
-    (distance % (1000*60))
-    / 1000
-  );
+  if(totalSeconds > 0){
 
-  document.getElementById("days").textContent =
-  days;
+    totalSeconds--;
 
-  document.getElementById("hours").textContent =
-  hours;
+  }else{
 
-  document.getElementById("minutes").textContent =
-  minutes;
+    /* NEW RANDOM COUNTDOWN
+       WHEN OLD ONE FINISHES */
 
-  document.getElementById("seconds").textContent =
-  seconds;
+    totalSeconds =
+
+      (Math.floor(Math.random() * 80) + 20)
+      * 86400
+
+      +
+
+      (Math.floor(Math.random() * 23) + 1)
+      * 3600
+
+      +
+
+      (Math.floor(Math.random() * 59) + 1)
+      * 60
+
+      +
+
+      (Math.floor(Math.random() * 59) + 1);
+
+  }
+
 }
+
+
+/* START COUNTDOWN */
 
 updateCountdown();
 
-setInterval(updateCountdown,1000);
+setInterval(
+  updateCountdown,
+  1000
+);
 
 </script>
-
-</body>
-</html>
